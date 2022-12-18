@@ -4,11 +4,16 @@ const rollOutput = document.getElementById("rollOutput");
 rollOutput.innerText = `x`;
 
 function rollDice(max) {
-    for (let i = 0; i < 10; i++) {
-        let roll = Math.floor(Math.random() * (max) + 1)
-        rollOutput.innerText = roll;
-        console.log(roll)
-    }
+    let roll = Math.floor(Math.random() * (max) + 1)
+    rollOutput.innerText = roll;
+
+    //check random
+    // for (let i = 0; i < 10; i++) {
+    //     let roll = Math.floor(Math.random() * (max) + 1)
+    //     rollOutput.innerText = roll;
+    //     console.log(roll)
+    // }
+
     // container.appendChild(row).className = "row-container";
 }
 

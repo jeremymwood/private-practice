@@ -14,6 +14,7 @@ body {
     font-size: 2em;
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
 }
 h1  {
@@ -28,7 +29,7 @@ h1  {
     align-items: center;
     padding: .25em;
     margin: 1em;
-    /*width: 30px;*/
+    width: 70px;
     border: .25em var(--text) solid;
     background-color: var(--bg);
     box-sizing: border-box;

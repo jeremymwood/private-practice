@@ -1,9 +1,11 @@
 `use strict`;
 const rollOutput = document.getElementById("rollOutput");
 
+// const
+
 function rollDice(max) {
     let roll = Math.floor(Math.random() * (max - 2) + 1)
-    rollOutput.innerText = `rollie-ollie-ollio: ${roll}`;
+    rollOutput.innerText = roll;
     // container.appendChild(row).className = "row-container";
 }
 

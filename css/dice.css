@@ -1,14 +1,14 @@
 :root {
     --accent: #F5D2C9;
-    --cellStroke: #d6edf5;
-    --cellColor: #A89E82;
+    --cellStroke: #A89E82;
+    --cellColor: #d6edf5;
     --bg: #F5E9C9;
     --text: #A88A82;
 }
-
+* {
+    margin: 0;
+}
 body {
-    /*margin: 0;*/
-    /*padding: 1em;*/
     background-color: var(--bg);
     color: var(--text);
     font-size: 2em;
@@ -18,17 +18,45 @@ body {
 }
 h1  {
     margin: 0;
+    /*padding: 1em;*/
     font-size: 2em;
 }
 
 #rollOutput {
-    /*display: flex;*/
-    /*flex-direction: column;*/
-    /*align-items: center;*/
-    padding: 1em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: .25em;
+    margin: 1em;
+    /*width: 30px;*/
+    border: .25em var(--text) solid;
+    box-sizing: border-box;
+    /*aspect-ratio: 1/1;*/
+    /*width: 100%;*/
 }
 .optionContainer {
+    /*padding: 1em;*/
     width: 100vw;
     display: flex;
     justify-content: space-around;
+}
+button {
+    background-color: var(--bg);
+    color: var(--text);
+    font-size: 1em;
+    /*padding: 1em;*/
+    /*width: 100vw;*/
+    display: flex;
+    justify-content: space-around;
+    border: .25em var(--text) solid;
+}
+
+button:hover {
+    background-color: var(--cellColor);
+    border: .25em var(--cellColor) solid;
+    font-weight: bolder;
+}
+
+button:hover {
+    background-color: var(--cellColor);
 }

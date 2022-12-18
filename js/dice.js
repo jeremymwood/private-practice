@@ -7,7 +7,7 @@ function rollDice(max) {
     let roll = Math.floor(Math.random() * (max) + 1)
     rollOutput.innerText = roll;
 
-    //check random
+    // check random
     // for (let i = 0; i < 10; i++) {
     //     let roll = Math.floor(Math.random() * (max) + 1)
     //     rollOutput.innerText = roll;

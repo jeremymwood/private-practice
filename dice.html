@@ -6,8 +6,8 @@
   <link rel="stylesheet" href="css/dice.css">
 </head>
 <body>
-    <h1>rollie-ollie-ollio</h1>
-    <div id="rollOutput"></div>
+    <h1>dice simulator</h1>
+    <h3>(click one)</h3>
     <div class="optionContainer">
         <button class="dfour" value="Refresh Webpage." onclick="refresh4()">D4</button>
         <button class="dsix" value="Refresh Webpage." onclick="refresh6()">D6</button>
@@ -15,6 +15,10 @@
         <button class="dten" value="Refresh Webpage." onclick="refresh10()">D10</button>
         <button class="dtwelve" value="Refresh Webpage." onclick="refresh12()">D12</button>
         <button class="dtwenty" value="Refresh Webpage." onclick="refresh20()">D20</button>
+    </div>
+    <div class="rollContainer">
+        <h3>your roll is:</h3>
+        <div id="rollOutput"></div>
     </div>
 </body>
 <script src="js/dice.js"></script>

@@ -23,20 +23,33 @@ h1  {
     font-size: 2em;
 }
 
+h3 {
+
+}
+
+.rollContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
 #rollOutput {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: .25em;
-    margin: 1em;
+    /*padding: .25em;*/
+    /*margin: .5em;*/
     width: 70px;
-    border: .25em var(--text) solid;
-    background-color: var(--bg);
+    font-weight: bolder;
+    /*border: .25em var(--text) solid;*/
+    /*border-radius: .25em;*/
+    /*background-color: var(--bg);*/
     box-sizing: border-box;
     /*aspect-ratio: 1/1;*/
     /*width: 100%;*/
 }
 .optionContainer {
+    padding: 1em;
     /*padding: 1em;*/
     width: 100vw;
     display: flex;

@@ -1,12 +1,22 @@
+:root {
+    --accent: #F5D2C9;
+    --cellStroke: #d6edf5;
+    --cellColor: #A89E82;
+    --bg: #F5E9C9;
+    --text: #A88A82;
+}
+
 body {
     margin: 0;
+    background-color: var(--bg);
 }
 #container {
     height: 100vh;
     display: flex;
+    background-color: var(--bg);
     flex-direction: column;
     justify-content: center;
-    margin: auto 1em;
+    margin: 0 1em;
 }
 .row-container {
     /*width: 100%;*/
@@ -25,8 +35,8 @@ body {
 }
 .grid-item {
     color: red;
-    background-color: lightskyblue;
-    border: 2px solid white;
+    background-color: var(--cellColor);
+    border: 2px solid var(--bg);
     margin: auto;
 
     /*display: flex;*/

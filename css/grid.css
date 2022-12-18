@@ -6,6 +6,7 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    margin: auto 1em;
 }
 .row-container {
     /*width: 100%;*/
@@ -14,8 +15,9 @@ body {
     /*box-sizing: border-box;*/
 
     /*troubleshooting*/
+    /*height: 100%;*/
     display: flex;
-    flex-grow: 1;
+    /*flex-grow: 1;*/
     /*justify-content: center;*/
     /*align-items: center;*/
     /*flex-grow: 1;*/

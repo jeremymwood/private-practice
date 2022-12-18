@@ -3,15 +3,28 @@ const rollOutput = document.getElementById("rollOutput");
 
 // const
 
+function refresh4() {
+    const rndInt = rollDice(4);
+    console.log(rndInt);
+    location.reload();
+}
+
+function refresh6() {
+    const rndInt = rollDice(6);
+    console.log(rndInt);
+    location.reload();
+}
+
 function rollDice(max) {
-    let roll = Math.floor(Math.random() * (max - 2) + 1)
+    let roll = Math.floor(Math.random() * (max)) + 1
     rollOutput.innerText = roll;
     // container.appendChild(row).className = "row-container";
 }
 
-const rndInt = rollDice(20);
-console.log(rndInt);
 
+// setTimeout(() => {
+//     document.location.reload();
+// }, 3000);
 
 
 // function rollDice(rows, cols) {

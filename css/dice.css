@@ -30,6 +30,7 @@ h1  {
     margin: 1em;
     /*width: 30px;*/
     border: .25em var(--text) solid;
+    background-color: var(--bg);
     box-sizing: border-box;
     /*aspect-ratio: 1/1;*/
     /*width: 100%;*/
@@ -49,14 +50,20 @@ button {
     display: flex;
     justify-content: space-around;
     border: .25em var(--text) solid;
+    border-radius: .25em;
 }
 
 button:hover {
     background-color: var(--cellColor);
     border: .25em var(--cellColor) solid;
     font-weight: bolder;
+    box-shadow: 2px 2px 5px var(--cellStroke);
 }
 
-button:hover {
-    background-color: var(--cellColor);
+button:active {
+    background-color: var(--accent);
+    border: .25em var(--accent) solid;
+    font-weight: bolder;
+    scale: 1.1;
+    box-shadow: 2px 2px 5px var(--cellStroke);
 }

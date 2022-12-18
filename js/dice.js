@@ -1,11 +1,14 @@
-const container = document.getElementById("container");
+`use strict`;
+const rollOutput = document.getElementById("rollOutput");
 
-function randomIntFromInterval(min, max) { // min and max included
-    return Math.floor(Math.random() * (max - min + 1) + min)
+function rollDice(max) {
+    let roll = Math.floor(Math.random() * (max - 2) + 1)
+    rollOutput.innerText = `rollie-ollie-ollio: ${roll}`;
+    // container.appendChild(row).className = "row-container";
 }
 
-const rndInt = randomIntFromInterval(1, 6)
-console.log(rndInt)
+const rndInt = rollDice(20);
+console.log(rndInt);
 
 
 

@@ -22,11 +22,6 @@ h1  {
     /*padding: 1em;*/
     font-size: 2em;
 }
-
-h3 {
-
-}
-
 .rollContainer {
     display: flex;
     flex-direction: row;
@@ -66,14 +61,12 @@ button {
     border: .25em var(--text) solid;
     border-radius: .25em;
 }
-
 button:hover {
     background-color: var(--cellColor);
     border: .25em var(--cellColor) solid;
     font-weight: bolder;
     box-shadow: 2px 2px 5px var(--cellStroke);
 }
-
 button:active {
     background-color: var(--accent);
     border: .25em var(--accent) solid;

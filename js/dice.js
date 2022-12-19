@@ -1,23 +1,38 @@
 `use strict`;
 const rollOutput = document.getElementById("rollOutput");
 
-rollOutput.innerText = `x`;
+rollOutput.innerText = `...`;
+
+const diceArray = [ 4, 6, 8, 10, 12, 20];
+
+const dice = {};
+
+for (const die of diceArray) {
+    // dice[die] = {
+    //     name: `D`+ [die],
+    //     value: [die]
+    // };
+
+    dice[die] = new function() {
+        this.name = `D`+ [die];
+        this.value = die;
+    };
+}
+console.log(dice);
 
 function rollDice(max) {
-    // let roll = Math.floor(Math.random() * (max) + 1)
-    // rollOutput.innerText = roll;
+    let roll = Math.floor(Math.random() * (max) + 1)
+    rollOutput.innerText = `${roll}`;
 
     // check random
-    for (let i = 0; i < 10; i++) {
-        let roll = Math.floor(Math.random() * (max) + 1)
-        rollOutput.innerText = roll;
-        console.log(roll)
-    }
+    // for (let i = 0; i < 10; i++) {
+    //     let roll = Math.floor(Math.random() * (max) + 1)
+    //     rollOutput.innerText = roll;
+    //     console.log(roll)
+    // }
 
     // container.appendChild(row).className = "row-container";
 }
-
-// roll test
 
 function refresh4() {
     rollDice(4);

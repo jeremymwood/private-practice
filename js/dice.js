@@ -1,7 +1,8 @@
 `use strict`;
 const rollOutput = document.getElementById("rollOutput");
+// rollOutput.innerText = `...`;
 
-rollOutput.innerText = `...`;
+const optionContainer = document.getElementById("optionContainer");
 
 const diceArray = [ 4, 6, 8, 10, 12, 20];
 
@@ -12,23 +13,41 @@ for (const die of diceArray) {
         this.name = `D`+ [die];
         this.value = die;
     }
+    //add button
+    const Btn = optionContainer.appendChild(document.createElement('button'))
+    Btn.className = this.name;
+    Btn.setAttribute(`value`,`Refresh Webpage.`);
+    Btn.setAttribute(`onclick`,`refresh ${this.name}`);
+
+    Btn.innerText = die.name;
+
+    //value="Refresh Webpage." onclick="refresh4()
 }
 console.log(dice);
 
 function rollDice(max) {
-    // let roll = Math.floor(Math.random() * (max) + 1)
-    // rollOutput.innerText = `${roll}`;
+    const roll = Math.floor(Math.random() * (max) + 1)
+    rollOutput.innerText = `${roll}`;
 
     // check random
+    // for (let i = 0; i < 10; i++) {
+    //     let roll = Math.floor(Math.random() * (max) + 1)
+    //     rollOutput.innerText = roll;
+    //     console.log(roll)
+    //     //add refresh on next roll)
+    // }
+
+    // rollOutput.appendChild(row).className = "row-container";
+}
+
+function rollCheck(max) {
     for (let i = 0; i < 10; i++) {
         let roll = Math.floor(Math.random() * (max) + 1)
-        rollOutput.innerText = roll;
+        // rollOutput.innerText = roll;
         console.log(roll)
-        //add refresh on next roll)
     }
-
-    // container.appendChild(row).className = "row-container";
 }
+rollCheck(100)
 
 function refresh4() {
     rollDice(4);

@@ -15,11 +15,12 @@ for (const die of diceArray) {
     }
     //add button
     const Btn = optionContainer.appendChild(document.createElement('button'))
-    Btn.className = this.name;
+    // this.className = Btn.name;
+    // Btn.setAttribute(`class`,`${this.name}`);
     Btn.setAttribute(`value`,`Refresh Webpage.`);
-    Btn.setAttribute(`onclick`,`refresh ${this.name}`);
+    Btn.setAttribute(`onclick`,`refresh ` + this.name);
 
-    Btn.innerText = die.name;
+    Btn.innerText = `...`;
 
     //value="Refresh Webpage." onclick="refresh4()
 }

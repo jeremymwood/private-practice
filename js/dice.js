@@ -28,7 +28,10 @@ for (const die of diceArray) {
     dice[die] = new function () {
         this.name = `D` + [die];
         this.value = die;
-        this.onclick = rollDice(this.value);
+        //fix this
+        // function refresh() {
+        //     rollDice(this.value);
+        // }
         button.className = this.name;
         button.setAttribute(`value`, `Refresh Webpage.`);
         button.setAttribute(`onclick`, `refresh()`);

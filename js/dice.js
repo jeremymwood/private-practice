@@ -11,7 +11,6 @@ const dice = {};
 function rollDice(max) {
     const roll = Math.floor(Math.random() * (max) + 1)
     rollOutput.innerText = `${roll}`;
-
     // check random
     // for (let i = 0; i < 10; i++) {
     //     let roll = Math.floor(Math.random() * (max) + 1)
@@ -28,26 +27,17 @@ for (const die of diceArray) {
     dice[die] = new function () {
         this.name = `D` + [die];
         this.value = die;
-        //fix this
-        // function refresh() {
-        //     rollDice(this.value);
-        // }
         button.className = this.name;
         button.setAttribute(`value`, `Refresh Webpage.`);
         button.setAttribute(`onclick`, `refresh()`);
         button.innerText = this.name;
+
+        //having problems defining refresh() to return RollDice values with appropriate die.value
+        button.onclick = new function refresh(){
+            rollDice(this.value);
+        }
     }
-    // dice[die] = new function refresh() {
-    // }
 }
-
-//want to look something like this
-// dice.forEach(function refresh(die) {
-// });
-//
-// console.log(refresh());
-
-// console.log(refresh(4));
 
 // function refresh4() {
 //     rollDice(4);

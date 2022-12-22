@@ -34,11 +34,15 @@ for (const die of diceArray) {
         button.innerText = this.name;
     }
 }
-function refresh(die) {
-    rollDice(this.value);
-}
 
-console.log(refresh(4));
+//want to look something like this
+dice.forEach(function refresh(die) {
+    rollDice(this.value);
+});
+
+console.log(refresh());
+
+// console.log(refresh(4));
 
 // function refresh4() {
 //     rollDice(4);

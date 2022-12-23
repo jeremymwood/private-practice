@@ -7,11 +7,11 @@ function makeGrid(rows, cols) {
         container.appendChild(row).className = "row-container";
 
         for (let j = 0; j < (cols); j++) {
-            let cell = document.createElement("div");
+            let cell = document.createElement("button");
             // cell.innerText = j + 1;
             row.appendChild(cell).className = "grid-item";
         }
     }
 }
 
-makeGrid(8, 16);
+makeGrid(8, 20);

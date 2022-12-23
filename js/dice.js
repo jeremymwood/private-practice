@@ -24,6 +24,10 @@ for (const die of diceArray) {
 
     const button = optionContainer.appendChild(document.createElement('button'));
 
+    function refresh(){
+        rollDice(this.value);
+    }
+
     dice[die] = new function () {
         this.name = `D` + [die];
         this.value = die;
@@ -33,9 +37,9 @@ for (const die of diceArray) {
         button.innerText = this.name;
 
         //having problems defining refresh() to return RollDice values with appropriate die.value
-        button.onclick = new function refresh(){
-            rollDice(this.value);
-        }
+        // button.onclick = new function refresh(){
+        //     rollDice(this.value);
+        // }
     }
 }
 

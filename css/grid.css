@@ -8,15 +8,18 @@
 body {
     margin: 0;
     background-color: var(--bg);
-    /*height: 100vh;*/
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
 }
 #container {
     /*height: 100vh;*/
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    /*justify-content: center;*/
     background-color: var(--bg);
-    margin: 1em 1em;
+    padding: .5em;
 }
 .row-container {
     /*width: 100%;*/
@@ -26,7 +29,7 @@ body {
     /*troubleshooting*/
     /*height: 100%;*/
     display: flex;
-    flex-grow: 1;
+    /*flex-grow: 1;*/
     /*justify-content: center;*/
     /*align-items: center;*/
     /*flex-grow: 1;*/
@@ -39,7 +42,6 @@ body {
     border-radius: .25em;
     /*margin: auto;*/
 
-    /*display: flex;*/
     flex-grow: 1;
     aspect-ratio: 1/1;
     /*display: flex;*/
@@ -51,12 +53,10 @@ body {
     background-color: var(--accent);
 
 }
-
 .grid-item:active {
     background-color: var(--accent);
     border: 2px solid var(--accent);
-    box-sizing: border-box;
-    box-shadow: var(--cellColor) 0px 7px 29px 0px;
+    /*box-sizing: border-box;*/
+    box-shadow: var(--cellColor) 0em 0em .5em .125em;
     scale: 1.1;
-
 }

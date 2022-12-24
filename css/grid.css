@@ -22,17 +22,8 @@ body {
     padding: .5em;
 }
 .row-container {
-    /*width: 100%;*/
     background-color: var(--bg);
-    /*box-sizing: border-box;*/
-
-    /*troubleshooting*/
-    /*height: 100%;*/
     display: flex;
-    /*flex-grow: 1;*/
-    /*justify-content: center;*/
-    /*align-items: center;*/
-    /*flex-grow: 1;*/
     color: red;
 }
 .grid-item {
@@ -40,13 +31,8 @@ body {
     background-color: var(--cellColor);
     border: 2px solid var(--bg);
     border-radius: .25em;
-    /*margin: auto;*/
-
     flex-grow: 1;
     aspect-ratio: 1/1;
-    /*display: flex;*/
-    /*justify-content: center;*/
-    /*align-items: center;*/
 }
 
 .grid-item:hover {

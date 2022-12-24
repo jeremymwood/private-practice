@@ -1,10 +1,9 @@
 `use strict`;
 const rollOutput = document.getElementById("rollOutput");
-// rollOutput.innerText = `...`;
 
 const optionContainer = document.getElementById("optionContainer");
 
-const diceArray = [ 4, 6, 8, 10, 12, 20];
+const diceArray = [ 4, 6, 8, 10, 12, 20, 100, 1000];
 
 const dice = {};
 
@@ -24,45 +23,13 @@ for (const die of diceArray) {
 
     const button = optionContainer.appendChild(document.createElement('button'));
 
-    function refresh(){
-        rollDice(this.value);
-    }
-
     dice[die] = new function () {
         this.name = `D` + [die];
         this.value = die;
-        button.className = this.name;
         button.setAttribute(`value`, `Refresh Webpage.`);
-        button.setAttribute(`onclick`, `refresh()`);
         button.innerText = this.name;
-
-        //having problems defining refresh() to return RollDice values with appropriate die.value
-        // button.onclick = new function refresh(){
-        //     rollDice(this.value);
-        // }
+        button.addEventListener("click", function() {
+            rollDice(die);
+        });
     }
 }
-
-// function refresh4() {
-//     rollDice(4);
-// }
-//
-// function refresh6() {
-//     rollDice(6);
-// }
-//
-// function refresh8() {
-//     rollDice(8);
-// }
-//
-// function refresh10() {
-//     rollDice(10);
-// }
-//
-// function refresh12() {
-//     rollDice(12);
-// }
-//
-// function refresh20() {
-//     rollDice(20);
-// }

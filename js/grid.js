@@ -10,6 +10,10 @@ function makeGrid(rows, cols) {
             let cell = document.createElement("button");
             // cell.innerText = j + 1;
             row.appendChild(cell).className = "grid-item";
+            //work on depressed state
+            // cell.addEventListener("click", function() {
+            //     rollDice(die);
+            // });
         }
     }
 }

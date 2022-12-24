@@ -3,15 +3,16 @@ const rollOutput = document.getElementById("rollOutput");
 
 const optionContainer = document.getElementById("optionContainer");
 
-const diceArray = [ 4, 6, 8, 10, 12, 20];
+const diceArray = [ 4, 6, 8, 10, 12, 20, 100, 1000, 10000, 100000, 1000000];
 
-// , 100, 1000, 10000, 100000, 1000000, 10000000
+//
 
 const dice = {};
 
 function rollDice(max) {
     const roll = Math.floor(Math.random() * (max) + 1)
     rollOutput.innerText = `${roll.toLocaleString("en-US")}`;
+
     // check random
     // for (let i = 0; i < 10; i++) {
     //     let roll = Math.floor(Math.random() * (max) + 1)

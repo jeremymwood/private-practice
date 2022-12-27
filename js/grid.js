@@ -17,4 +17,4 @@ function makeGrid(rows, cols) {
     }
 }
 
-makeGrid(5, 16);
+makeGrid(3, 4);

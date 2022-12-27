@@ -34,7 +34,6 @@ body {
     flex-grow: 1;
     aspect-ratio: 1/1;
 }
-
 .grid-item:hover {
     background-color: var(--accent);
 

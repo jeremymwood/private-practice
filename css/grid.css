@@ -10,16 +10,16 @@ body {
     background-color: var(--bg);
     height: 100vh;
     display: flex;
-    flex-direction: column;
-    justify-content: space-around;
+    align-items: center;
 }
 #container {
-    /*height: 100vh;*/
     display: flex;
     flex-direction: column;
-    /*justify-content: center;*/
+    /*align-self: center;*/
+    flex-grow: 1;
     background-color: var(--bg);
     padding: .5em;
+    max-height: 100%;
 }
 .row-container {
     background-color: var(--bg);
@@ -45,4 +45,11 @@ body {
     /*box-sizing: border-box;*/
     box-shadow: var(--cellColor) 0em 0em .5em .125em;
     scale: 1.1;
+}
+.grid-item.grid-selected {
+    background-color: var(--text);
+    border: 2px solid var(--text);
+    /*box-sizing: border-box;*/
+    box-shadow: var(--cellColor) 0em 0em .5em .125em;
+    /*scale: 1.1;*/
 }

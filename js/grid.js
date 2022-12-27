@@ -11,11 +11,10 @@ function makeGrid(rows, cols) {
             // cell.innerText = j + 1;
             row.appendChild(cell).className = "grid-item";
             //work on depressed state
-            // cell.addEventListener("click", function() {
-            //     rollDice(die);
-            // });
+            // cell.addEventListener("click", append(cell).className = "grid-selected";
+            // );
         }
     }
 }
 
-makeGrid(4, 8);
+makeGrid(5, 16);

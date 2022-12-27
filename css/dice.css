@@ -18,10 +18,8 @@ body {
     align-items: center;
 }
 h1  {
-    margin: 0;
-    /*padding: 1em;*/
     font-size: 2em;
-    /*text-underline: black;*/
+    display: flex;
 }
 h3 {
     position: absolute;
@@ -80,3 +78,9 @@ button:active {
     scale: 1.1;
     box-shadow: 2px 2px 5px var(--cellStroke);
 }
+/*@media only screen and (max-width: 600px) {*/
+/*    h1  {*/
+/*        font-size: 4em;*/
+/*        display: flex;*/
+/*    }*/
+/*}*/

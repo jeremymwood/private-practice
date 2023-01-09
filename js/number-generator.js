@@ -9,3 +9,5 @@ function makeid(length) {
 }
 
 console.log(makeid(6));
+
+// append collection until 2400 characters including spaces met

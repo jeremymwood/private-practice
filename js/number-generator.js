@@ -5,20 +5,14 @@ function makeid(length) {
     let charactersLength = characters.length;
     for ( let i = 0; i < length; i++ ) {
         result += characters.charAt(Math.floor(Math.random() * charactersLength));
-
     // prints iterating groups of unit block
     // console.log(result);
     }
     return result;
 }
-
 // prints block
 // console.log(makeid(6));
-
-const blockLength = 4;
-const finalProductLength = 342;
-
-// append collection until 2400 characters including spaces met
+const blockLength = 10;
 const desiredLength = 2400;
 
 function finalProduct(length) {
@@ -28,10 +22,13 @@ function finalProduct(length) {
     }
     return result;
 }
-
 let body = document.querySelector("body");
 let numContainer = document.createElement('div');
 numContainer.setAttribute("id", "numContainer");
 body.appendChild(numContainer);
-numContainer.innerHTML = finalProduct(finalProductLength);
-// console.log(finalProduct(finalProductLength));
+numContainer.innerHTML = finalProduct(desiredLength/(blockLength + 1));
+
+let countContainer = document.createElement('div');
+countContainer.setAttribute("id", "countContainer");
+body.appendChild(countContainer);
+countContainer.innerHTML = "Character Count: " + numContainer.innerHTML.length;

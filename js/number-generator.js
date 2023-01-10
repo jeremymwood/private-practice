@@ -15,7 +15,7 @@ function makeid(length) {
 // prints block
 // console.log(makeid(6));
 
-const blockLength = 6;
+const blockLength = 4;
 const finalProductLength = 342;
 
 // append collection until 2400 characters including spaces met
@@ -29,8 +29,9 @@ function finalProduct(length) {
     return result;
 }
 
-
-// console.log(finalProduct(finalProductLength));
-
 let numContainer = document.getElementById("numContainer");
 numContainer.innerHTML = finalProduct(finalProductLength);
+
+// const numContainer = document.body.appendChild(document.createElement('div'));
+
+// console.log(finalProduct(finalProductLength));

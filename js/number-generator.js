@@ -30,7 +30,7 @@ function finalProduct(length) {
 }
 
 
-console.log(finalProduct(finalProductLength));
+// console.log(finalProduct(finalProductLength));
 
 let numContainer = document.getElementById("numContainer");
 numContainer.innerHTML = finalProduct(finalProductLength);

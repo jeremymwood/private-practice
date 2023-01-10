@@ -29,9 +29,9 @@ function finalProduct(length) {
     return result;
 }
 
-let numContainer = document.getElementById("numContainer");
+let body = document.querySelector("body");
+let numContainer = document.createElement('div');
+numContainer.setAttribute("id", "numContainer");
+body.appendChild(numContainer);
 numContainer.innerHTML = finalProduct(finalProductLength);
-
-// const numContainer = document.body.appendChild(document.createElement('div'));
-
 // console.log(finalProduct(finalProductLength));

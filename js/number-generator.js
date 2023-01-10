@@ -16,7 +16,10 @@ function makeid(length) {
 // console.log(makeid(6));
 
 const blockLength = 6;
-const finalProductLength = 10;
+const finalProductLength = 342;
+
+// append collection until 2400 characters including spaces met
+const desiredLength = 2400;
 
 function finalProduct(length) {
     let result = '';
@@ -28,4 +31,6 @@ function finalProduct(length) {
 
 
 console.log(finalProduct(finalProductLength));
-// append collection until 2400 characters including spaces met
+
+let numContainer = document.getElementById("numContainer");
+numContainer.innerHTML = finalProduct(finalProductLength);

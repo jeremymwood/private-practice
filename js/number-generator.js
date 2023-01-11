@@ -12,7 +12,7 @@ function makeid(length) {
 }
 // prints block
 // console.log(makeid(6));
-const blockLength = 10;
+const blockLength = 4;
 const desiredLength = 2400;
 
 function finalProduct(length) {
@@ -32,3 +32,5 @@ let countContainer = document.createElement('div');
 countContainer.setAttribute("id", "countContainer");
 body.appendChild(countContainer);
 countContainer.innerHTML = "Character Count: " + numContainer.innerHTML.length;
+
+// change

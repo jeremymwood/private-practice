@@ -12,7 +12,7 @@ function makeid(length) {
 }
 // prints block
 // console.log(makeid(6));
-const blockLength = 4;
+const blockLength = 6;
 const desiredLength = 2400;
 
 function finalProduct(length) {

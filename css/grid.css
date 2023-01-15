@@ -16,7 +16,7 @@ body {
     align-items: center;
 }
 #container {
-    margin: auto;
+    /*margin: auto;*/
     flex-direction: column;
     flex-grow: 1;
     background-color: var(--bg);

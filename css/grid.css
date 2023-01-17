@@ -56,5 +56,5 @@ body {
     border: 2px solid var(--text);
     /*box-sizing: border-box;*/
     box-shadow: var(--cellColor) 0em 0em .5em .125em;
-    /*scale: 1.1;*/
+    ! *scale: 1.1;*/
 }

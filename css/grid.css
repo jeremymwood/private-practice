@@ -20,41 +20,28 @@ body {
     /*original*/
     display: flex;
     flex-direction: column;
-
-    margin: 2em;
-    padding: 2em;
-    border: 1px red solid;
     justify-content: center;
     align-content: center;
-    flex-grow: 1;
-    background-color: var(--bg);
-    padding: .5em;
-    aspect-ratio: 1/1;
-    max-width: 90vh;
-}
-.row-container {
-    /*new*/
-    justify-content: center;
-    align-items: center;
     /*flex-grow: 1;*/
 
+    margin: 2em;
+    padding: .5em;
+    border: 1px red solid;
+    background-color: var(--bg);
+    aspect-ratio: 1/1;
+    width: 75vh;
+    height: 75vw;
+}
+.row-container {
     background-color: var(--bg);
     display: flex;
-    color: red;
 }
 .grid-item {
-    /*color: red;*/
     padding: 0;
     background-color: var(--cellColor);
     border: 2px solid var(--bg);
     border-radius: .25em;
-
-    /*original*/
-    /*flex-grow: 1;*/
-
-    /*new*/
     flex-grow: 1;
-    /*height: 40px;*/
     aspect-ratio: 1/1;
 }
 .grid-item:hover {

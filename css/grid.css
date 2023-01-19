@@ -9,8 +9,8 @@
     box-sizing: border-box;
 }
 body {
-    margin: 0;
     background-color: var(--bg);
+    margin: 0;
     height: 100vh;
     display: flex;
     align-items: center;
@@ -18,22 +18,25 @@ body {
 }
 #container {
     /*original*/
-    /*display: flex;*/
-    /*flex-direction: column;*/
+    display: flex;
+    flex-direction: column;
 
-
+    margin: 2em;
+    padding: 2em;
     border: 1px red solid;
     justify-content: center;
+    align-content: center;
     flex-grow: 1;
     background-color: var(--bg);
     padding: .5em;
     aspect-ratio: 1/1;
-    max-height: 100vh;
-    max-width: 100vh;
+    max-width: 90vh;
 }
 .row-container {
     /*new*/
     justify-content: center;
+    align-items: center;
+    /*flex-grow: 1;*/
 
     background-color: var(--bg);
     display: flex;
@@ -50,7 +53,8 @@ body {
     /*flex-grow: 1;*/
 
     /*new*/
-    height: 20px;
+    flex-grow: 1;
+    /*height: 40px;*/
     aspect-ratio: 1/1;
 }
 .grid-item:hover {

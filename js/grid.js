@@ -19,4 +19,4 @@ function makeGrid(rows, cols) {
 // // work on depressed state
 // cell.addEventListener("click", cell.appendChild().className = "grid-selected";)
 
-makeGrid(6, 4);
+makeGrid(5, 4);

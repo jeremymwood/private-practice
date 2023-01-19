@@ -8,13 +8,15 @@ function makeGrid(rows, cols) {
 
         for (let j = 0; j < (cols); j++) {
             let cell = document.createElement("button");
+
             // cell.innerText = j + 1;
             row.appendChild(cell).className = "grid-item";
-            //work on depressed state
-            // cell.addEventListener("click", append(cell).className = "grid-selected";
             // );
         }
     }
 }
+// let cell = document.createElement("button");
+// // work on depressed state
+// cell.addEventListener("click", cell.appendChild().className = "grid-selected";)
 
 makeGrid(6, 4);

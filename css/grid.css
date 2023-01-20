@@ -26,11 +26,15 @@ body {
 
     margin: 2em;
     padding: .5em;
-    border: 1px red solid;
+    border: 3px red solid;
     background-color: var(--bg);
     aspect-ratio: 1/1;
     width: 75vh;
     height: 75vw;
+
+    max-height: 75vh;
+    max-width: 75vw;
+
 }
 .row-container {
     background-color: var(--bg);

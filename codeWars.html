@@ -5,9 +5,9 @@
     <title>Code Wars</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
-          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <script src="https://kit.fontawesome.com/4d0b40d330.js" crossorigin="anonymous"></script>
+<!--    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"-->
+<!--          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">-->
+<!--    <script src="https://kit.fontawesome.com/4d0b40d330.js" crossorigin="anonymous"></script>-->
 </head>
 <body>
 
@@ -16,12 +16,117 @@
     (function () {
         "use strict";
 
-        function isPangram(string){
-            const letters = "abcdefghijklmnopqrstuvwxyz";
-            let parsedLetters = [letters.split('')];
-            console.log(parsedLetters);
-            console.log(letters);
+        let letters = "abcdefghijklmnopqrstuvwxyz";
+        let testWord = "hotdog";
+        // const lettersArr = [letters.split('')];
+        // let reversedLetters = "";
+
+
+        // for (let i = 0; i < testWord.length; i++) {
+        //     if (testWord[i] = (
+        //         for (let j = 0; j < letters.length; j++) {
+        //             letters[j];
+        //             // reversedLetters = letters[j] + reversedLetters;
+        //         }) {
+        //         testWord = testWord.replace([i], "");
+        //         letters = letters.replace([j], "");
+        //     }
+        // }
+
+        // for (let i = 0; i < letters.length; i++) {
+        //     // console.log(letters[i]);
+        //     reversedLetters = letters[i] + reversedLetters;
+        // }
+        // console.log(reversedLetters);
+        // function isPangram(string) {
+        //
+        // }
+
+        // isPangram("abcdefghijklmnopqrstuvwxyz");
+        // isPangram("hey there");
+
+        function numberToString(num) {
+            // Return a string of the number here!
+            console.log(typeof num);
+            console.log(typeof (num.toString()));
+            console.log(num.toString());
+            return num.toString();
         }
+        numberToString(10);
+
+
+        function paperwork(n, m) {
+            if (n < 0 || m < 0) {
+                return 0;
+            } else {
+                return n * m;
+            }
+        }
+        console.log(paperwork(3,4));
+        console.log(paperwork(3,-4));
+
+        let haystack = ["hay", "junk", "hay", "hay", "moreJunk", "needle", "randomJunk"];
+        function findNeedle(haystack) {
+            for (let i = 0; i < haystack.length; i++) {
+                if (haystack[i] === "needle") {
+                    return `found the needle at position ${i}`;
+                }
+            }
+        }
+
+        console.log(findNeedle(haystack));
+
+        function removeChar(str){
+            //You got this!
+            for (let i = 0; i < str.length; i++) {
+                if (str.length > 2) {
+                    return str.slice(1,-1);
+                } else {
+                    return str;
+                }
+            }
+        };
+
+        console.log(removeChar("no"));
+
+        let numbers = [1, 2, 2];
+        let sum = 0;
+        function squareSum(numbers){
+            for (let i = 0; i < numbers.length; i++) {
+                sum += numbers[i] ** 2;
+            }
+            return sum;
+        }
+        console.log(squareSum(numbers));
+
+
+        function sumMix(x){
+            let sum = 0;
+            for(let i = 0; i < x.length; i++) {
+                if (typeof x[i] === 'string') {
+                    return sum += parseInt(x[i]);
+                } else {
+                    return sum += x[i];
+                }
+                // return sum;
+            }
+        }
+
+        console.log(sumMix([2, '21', 19]));
+        // console.log(parseInt("2"));
+        // console.log(typeof parseInt("2"));
+
+        const arr = [67, 45, '34', '23', 4, 6, '6'];
+        const mixedSum = (arr = []) => {
+            let sum = 0;
+            for(let i = 0; i < arr.length; i++){
+                const el = arr[i];
+                sum += +el;
+            };
+            return sum;
+        };
+        console.log(mixedSum(arr));
+
 
     })();
 </script>

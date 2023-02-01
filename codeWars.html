@@ -169,16 +169,115 @@
 
         function solution(str){
             let revStr = "";
-            for (let i = str.length; i >= ; i--) {
-                return revStr += revStr.unshift str[i];
+            for (let i = str.length - 1; i >= 0; i--) {
+                revStr += str[i];
             }
             return revStr;
         }
+        // console.log(solution('world'));
+        // console.log(solution('hello'));
+        // console.log(solution(''));
+        // console.log(solution('h'));
 
-        console.log(solution('world');
-        console.log(solution('hello');
-        console.log(solution('');
-        console.log(solution('h');
+        function abbrevName(name){
+            let abbr = ""
+            abbr += name.toUpperCase().charAt(0) + "."
+            for (let i = 0; i < name.length; i++) {
+                if (name[i] === " ") {
+                    abbr += name[i + 1].toUpperCase() + "."
+                }
+            }
+            return abbr;
+        }
+        // console.log(abbrevName("Sam Harris"));
+        // console.log(abbrevName("Patrick Feenan"));
+        // console.log(abbrevName("Evan Cole"));
+        // console.log(abbrevName("P Favuzzi"));
+
+        function hero(bullets, dragons){
+            let outcome = bullets/dragons;
+            console.log(outcome);
+            return outcome >= 2;
+
+        }
+        // console.log(hero(10, 5));
+        // console.log(hero(7, 4));
+        // console.log(hero(4, 5));
+        // console.log(hero(100, 40));
+
+        function countSheeps(arrayOfSheep) {
+            let count = 0;
+            for (let i = 0; i < arrayOfSheep.length; i++) {
+                if (arrayOfSheep[i] === true) {
+                    count++;
+                }
+            }
+            return count;
+        }
+
+        let array1 = [true,  true,  true,  false,
+                    true,  true,  true,  true ,
+                    true,  false, true,  false,
+                    true,  false, false, true ,
+                    true,  true,  true,  true ,
+                    false, false, true,  true ];
+
+        // console.log(countSheeps(array1));
+
+        function rentalCarCost(d) {
+            let rentalCostPerDay = 40;
+            let threeDayDiscount = 20;
+            let sevenDayDiscount = 50;
+            let total = rentalCostPerDay * d;
+            if (d >= 7) {
+                total -= sevenDayDiscount;
+            } else {
+                if (d >= 3) {
+                    total -= threeDayDiscount;
+                }
+            }
+            return total;
+        }
+        // console.log(rentalCarCost(1));
+        // console.log(rentalCarCost(2));
+        // console.log(rentalCarCost(3));
+        // console.log(rentalCarCost(4));
+        // console.log(rentalCarCost(5));
+        // console.log(rentalCarCost(6));
+        // console.log(rentalCarCost(7));
+        // console.log(rentalCarCost(8));
+
+        function removeExclamationMarks(s) {
+            let newStr = ""
+            for (let i = 0; i < s.length; i++) {
+                if (s[i] !== "!") {
+                    newStr += s.charAt(i)
+                }
+            }
+            return newStr;
+        }
+        // console.log(removeExclamationMarks("Hello World!"));
+
+        function repeatStr (n, s) {
+            //my initial solution
+            // let repNew = "";
+            // if ( typeof n === "number" && typeof s === "string") {
+            //     for (let i = 0; i < n; i++) {
+            //             repNew += s;
+            //     }
+            //     return repNew;
+            // }
+
+            // #1 solution
+            return s.repeat(n);
+
+        }
+
+
+        console.log(repeatStr(3, "*"));
+        console.log(repeatStr(5, "#"));
+        console.log(repeatStr(2, "ha "));
+
 
     })();
 </script>

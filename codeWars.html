@@ -52,7 +52,7 @@
             console.log(num.toString());
             return num.toString();
         }
-        numberToString(10);
+        // numberToString(10);
 
 
         function paperwork(n, m) {
@@ -62,8 +62,8 @@
                 return n * m;
             }
         }
-        console.log(paperwork(3,4));
-        console.log(paperwork(3,-4));
+        // console.log(paperwork(3,4));
+        // console.log(paperwork(3,-4));
 
         let haystack = ["hay", "junk", "hay", "hay", "moreJunk", "needle", "randomJunk"];
         function findNeedle(haystack) {
@@ -74,7 +74,7 @@
             }
         }
 
-        console.log(findNeedle(haystack));
+        // console.log(findNeedle(haystack));
 
         function removeChar(str){
             //You got this!
@@ -87,7 +87,7 @@
             }
         };
 
-        console.log(removeChar("no"));
+        // console.log(removeChar("no"));
 
         let numbers = [1, 2, 2];
         let sum = 0;
@@ -97,7 +97,7 @@
             }
             return sum;
         }
-        console.log(squareSum(numbers));
+        // console.log(squareSum(numbers));
 
 
         function sumMix(x){
@@ -112,7 +112,7 @@
             }
         }
 
-        console.log(sumMix([2, '21', 19]));
+        // console.log(sumMix([2, '21', 19]));
         // console.log(parseInt("2"));
         // console.log(typeof parseInt("2"));
 
@@ -125,7 +125,39 @@
             };
             return sum;
         };
-        console.log(mixedSum(arr));
+        // console.log(mixedSum(arr));
+
+        let countSheep = function (num){
+            let content = " sheep...";
+            let print = ""
+            if (typeof num === "number" && num > 0) {
+                for (let i = 1; i <= num; i++) {
+                    print += i + content;
+                }
+                return print;
+            } else {
+                return "";
+            }
+        }
+
+        // console.log(countSheep(0))
+
+
+        function boolToWord( bool ){
+            if (bool === true) {
+                return "Yes";
+            }
+            if (bool === false) {
+                return 'No'
+            } else {
+                return ""
+            }
+        }
+
+        // console.log(boolToWord(true));
+        // console.log(boolToWord(false));
+
+
 
 
     })();

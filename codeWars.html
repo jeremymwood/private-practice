@@ -272,12 +272,32 @@
             return s.repeat(n);
 
         }
+        // console.log(repeatStr(3, "*"));
+        // console.log(repeatStr(5, "#"));
+        // console.log(repeatStr(2, "ha "));
 
+        function DNAtoRNA(dna) {
+            // create a function which returns an RNA sequence from the given DNA sequence
 
-        console.log(repeatStr(3, "*"));
-        console.log(repeatStr(5, "#"));
-        console.log(repeatStr(2, "ha "));
+            //my solution
+            // let rna = "";
+            // for (let i = 0; i < dna.length; i++) {
+            //     if (dna.charAt(i) === "T") {
+            //         rna += "U";
+            //     } else {
+            //         rna += dna.charAt(i);
+            //     }
+            // }
+            // return rna;
 
+            //alt
+            // return dna.replace(/T/g, 'U');
+            return dna.split("T").join("U");
+
+        }
+        // console.log(DNAtoRNA("TTTT"));
+        // console.log(DNAtoRNA("GCAT"));
+        // console.log(DNAtoRNA("GACCGCCGCC"));
 
     })();
 </script>

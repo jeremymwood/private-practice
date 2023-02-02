@@ -52,6 +52,7 @@
             console.log(num.toString());
             return num.toString();
         }
+
         // numberToString(10);
 
 
@@ -62,10 +63,12 @@
                 return n * m;
             }
         }
+
         // console.log(paperwork(3,4));
         // console.log(paperwork(3,-4));
 
         let haystack = ["hay", "junk", "hay", "hay", "moreJunk", "needle", "randomJunk"];
+
         function findNeedle(haystack) {
             for (let i = 0; i < haystack.length; i++) {
                 if (haystack[i] === "needle") {
@@ -76,11 +79,11 @@
 
         // console.log(findNeedle(haystack));
 
-        function removeChar(str){
+        function removeChar(str) {
             //You got this!
             for (let i = 0; i < str.length; i++) {
                 if (str.length > 2) {
-                    return str.slice(1,-1);
+                    return str.slice(1, -1);
                 } else {
                     return str;
                 }
@@ -91,18 +94,20 @@
 
         let numbers = [1, 2, 2];
         let sum = 0;
-        function squareSum(numbers){
+
+        function squareSum(numbers) {
             for (let i = 0; i < numbers.length; i++) {
                 sum += numbers[i] ** 2;
             }
             return sum;
         }
+
         // console.log(squareSum(numbers));
 
 
-        function sumMix(x){
+        function sumMix(x) {
             let sum = 0;
-            for(let i = 0; i < x.length; i++) {
+            for (let i = 0; i < x.length; i++) {
                 if (typeof x[i] === 'string') {
                     return sum += parseInt(x[i]);
                 } else {
@@ -119,15 +124,16 @@
         const arr = [67, 45, '34', '23', 4, 6, '6'];
         const mixedSum = (arr = []) => {
             let sum = 0;
-            for(let i = 0; i < arr.length; i++){
+            for (let i = 0; i < arr.length; i++) {
                 const el = arr[i];
                 sum += +el;
-            };
+            }
+            ;
             return sum;
         };
         // console.log(mixedSum(arr));
 
-        let countSheep = function (num){
+        let countSheep = function (num) {
             let content = " sheep...";
             let print = ""
             if (typeof num === "number" && num > 0) {
@@ -143,7 +149,7 @@
         // console.log(countSheep(0))
 
 
-        function boolToWord( bool ){
+        function boolToWord(bool) {
             if (bool === true) {
                 return "Yes";
             }
@@ -162,24 +168,26 @@
             return Math.floor(time * vol);
             // return 0;
         }
+
         // console.log(litres(2));
         // console.log(litres(1.4));
         // console.log(litres(12.3));
         // console.log(litres(0.82));
 
-        function solution(str){
+        function solution(str) {
             let revStr = "";
             for (let i = str.length - 1; i >= 0; i--) {
                 revStr += str[i];
             }
             return revStr;
         }
+
         // console.log(solution('world'));
         // console.log(solution('hello'));
         // console.log(solution(''));
         // console.log(solution('h'));
 
-        function abbrevName(name){
+        function abbrevName(name) {
             let abbr = ""
             abbr += name.toUpperCase().charAt(0) + "."
             for (let i = 0; i < name.length; i++) {
@@ -189,17 +197,19 @@
             }
             return abbr;
         }
+
         // console.log(abbrevName("Sam Harris"));
         // console.log(abbrevName("Patrick Feenan"));
         // console.log(abbrevName("Evan Cole"));
         // console.log(abbrevName("P Favuzzi"));
 
-        function hero(bullets, dragons){
-            let outcome = bullets/dragons;
+        function hero(bullets, dragons) {
+            let outcome = bullets / dragons;
             console.log(outcome);
             return outcome >= 2;
 
         }
+
         // console.log(hero(10, 5));
         // console.log(hero(7, 4));
         // console.log(hero(4, 5));
@@ -215,12 +225,12 @@
             return count;
         }
 
-        let array1 = [true,  true,  true,  false,
-                    true,  true,  true,  true ,
-                    true,  false, true,  false,
-                    true,  false, false, true ,
-                    true,  true,  true,  true ,
-                    false, false, true,  true ];
+        let array1 = [true, true, true, false,
+            true, true, true, true,
+            true, false, true, false,
+            true, false, false, true,
+            true, true, true, true,
+            false, false, true, true];
 
         // console.log(countSheeps(array1));
 
@@ -238,6 +248,7 @@
             }
             return total;
         }
+
         // console.log(rentalCarCost(1));
         // console.log(rentalCarCost(2));
         // console.log(rentalCarCost(3));
@@ -256,9 +267,10 @@
             }
             return newStr;
         }
+
         // console.log(removeExclamationMarks("Hello World!"));
 
-        function repeatStr (n, s) {
+        function repeatStr(n, s) {
             //my initial solution
             // let repNew = "";
             // if ( typeof n === "number" && typeof s === "string") {
@@ -272,6 +284,7 @@
             return s.repeat(n);
 
         }
+
         // console.log(repeatStr(3, "*"));
         // console.log(repeatStr(5, "#"));
         // console.log(repeatStr(2, "ha "));
@@ -295,9 +308,24 @@
             return dna.split("T").join("U");
 
         }
+
         // console.log(DNAtoRNA("TTTT"));
         // console.log(DNAtoRNA("GCAT"));
         // console.log(DNAtoRNA("GACCGCCGCC"));
+
+        function opposite(number) {
+            return -number;
+        }
+        // console.log(opposite(1));
+        // console.log(opposite(0));
+        // console.log(opposite(4.25));
+        // console.log(opposite(3.3333333));
+        // console.log(opposite(-12525220.3325));
+        // console.log(opposite(-5));
+
+        function greet (name, owner) {
+            // Add code here
+        }
 
     })();
 </script>

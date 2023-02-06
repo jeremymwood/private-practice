@@ -363,20 +363,22 @@
 
         function findAverage(array) {
             let sum = 0;
-            for (let i = 0; i < array.length; i++) {
-                if (array[i] === NaN) {
-                    return 0;
-                } else {
-                    sum += array[i];
-                }
-            }
-            return sum / array.length;
+            let avg = sum / array.length;
+            // if (array === "") {
+            //     sum = 0;
+            // } else {
+            //     for (let i = 0; i < array.length; i++) {
+            //         sum += array[i];
+            //     }
+            // }
+            // return avg;
         }
+        // console.log(findAverage([1,1,1]));
+        // console.log(findAverage([1,2,3]));
+        // console.log(findAverage([1,2,3,4]));
+        // console.log(findAverage([]));
 
-        console.log(findAverage([1,1,1]));
-        console.log(findAverage([1,2,3]));
-        console.log(findAverage([1,2,3,4]));
-        console.log(findAverage([]));
+
 
     })();
 </script>

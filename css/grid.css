@@ -7,38 +7,80 @@
 }
 * {
     box-sizing: border-box;
+
+    /*https://stackoverflow.com/questions/65864203/how-to-make-div-element-auto-resize-maintaining-aspect-ratio/65864592#65864592*/
+    border: 0;
+    padding: 0;
+    margin: 0;
+
 }
 body {
     background-color: var(--bg);
-    margin: 0;
-    height: 100vh;
+
+    /*https://stackoverflow.com/questions/65864203/how-to-make-div-element-auto-resize-maintaining-aspect-ratio/65864592#65864592*/
+    /*width: 100vw;*/
+    height: 0vh;
+    /*width: 90vw;*/
+    aspect-ratio: 1/1;
+    position: relative;
+    /*transform: translateY(50%);*/
+    margin: auto;
+    /*left: 50%;*/
+    /*top: 25%;*/
+    /*display: flex;*/
+    /*justify-content: center;*/
+    /*align-items: center;*/
+
+}
+/*#containerOuter {*/
+/*    display: flex;*/
+/*    height: 100%;*/
+/*    width: 100%;*/
+/*    justify-content: center;*/
+/*    align-content: center;*/
+/*    aspect-ratio: 1/1;*/
+
+/*}*/
+#containerOuter {
     display: flex;
-    align-items: center;
+    /*object-fit: contain;*/
     justify-content: center;
+    align-items: center;
+    aspect-ratio: 1/1;
+    border: 3px red solid;
+    /*block-size: fit-content;*/
+    /*margin: 2em;*/
+    padding: 1em;
 }
 #container {
     /*original*/
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-content: center;
+    margin: 2em;
+    padding: 1em;
+
+    /*align-items: center;*/
     /*flex-grow: 1;*/
 
-    margin: 2em;
-    padding: .5em;
-    border: 3px red solid;
+
+    border: 3px orange solid;
     background-color: var(--bg);
     aspect-ratio: 1/1;
-    width: 75vh;
-    height: 75vw;
+    width: 100%;
+    height: 100%;
+    /*block-size: fit-content;*/
 
-    max-height: 75vh;
-    max-width: 75vw;
 
+
+    /*max-height: 75vh;*/
+    /*max-width: 75vw;*/
 }
 .row-container {
+    /*flex: fit-content;*/
     background-color: var(--bg);
     display: flex;
+
 }
 .grid-item {
     padding: 0;
@@ -59,10 +101,11 @@ body {
     box-shadow: var(--cellColor) 0em 0em .5em .125em;
     scale: 1.1;
 }
-/*.grid-item.grid-selected {*/
-/*    background-color: var(--text);*/
-/*    border: 2px solid var(--text);*/
-/*    !*box-sizing: border-box;*!*/
-/*    box-shadow: var(--cellColor) 0em 0em .5em .125em;*/
-/*    scale: 1.1;*/
-/*}*/
+
+.grid-item.grid-selected {
+    background-color: var(--text);
+    border: 2px solid var(--text);
+    /*box-sizing: border-box;*/
+    box-shadow: var(--cellColor) 0em 0em .5em .125em;
+    scale: 1.1;
+}

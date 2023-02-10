@@ -36,6 +36,8 @@ body {
     margin: auto;
     background-color: var(--bg);
     display: flex;
+    align-items: center;
+    justify-content: center;
     flex-grow: 1;
     /*width: auto;*/
     min-height: 0;

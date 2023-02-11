@@ -23,14 +23,15 @@ body {
     /*margin: auto;*/
     width: auto;
     /*padding: 0.5em;*/
-    /*display: flex;*/
+    display: flex;
     /*flex-grow: 1;*/
     /*top: 50%;*/
+    /*transform: translateY(50%);*/
     /*transform: translateY(50%);*/
 
     /*align-items: center;*/
     /*justify-content: center;*/
-    /*flex-direction: column;*/
+    flex-direction: column;
     border: 4px red solid;
 }
 .row-container {
@@ -57,7 +58,6 @@ body {
 }
 .grid-item:hover {
     background-color: var(--accent);
-
 }
 .grid-item:active {
     background-color: var(--accent);

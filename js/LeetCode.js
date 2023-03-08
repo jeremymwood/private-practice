@@ -16,6 +16,7 @@ const twoSum = function(nums, target) {
             break;
         }
     }
+    console.log("New array ${newArr}");
 };
 
 // twoSum([1,2,3], 3);

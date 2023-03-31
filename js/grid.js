@@ -1,5 +1,5 @@
 
-let rows = 0;
+let rows = 5;
 let cols = 18;
 
 function makeGrid() {
@@ -25,7 +25,13 @@ makeGrid();
 
 //submit connected
 //adds rows, but soes not replace
-$('.btn').click(function () {
+$(document).keyup(function(event) {
+    if ($(`#rowInput`).is(":focus") && event.key === "Enter") {
+        rowUpdate ();
+    }
+});
+
+function rowUpdate () {
     let value = $("#rowInput").val();
     console.log(value);
     rows = value;
@@ -34,4 +40,4 @@ $('.btn').click(function () {
         $(`#container`).find(`.row-container`).remove();
         makeGrid();
     }
-});
+};

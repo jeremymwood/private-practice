@@ -10,16 +10,20 @@ const personMachina = function() {
     }
     console.log(`Voters: [${people}]`);
 }
-personMachina();
 
 /* Randormize array in-place using Durstenfeld shuffle algorithm */
 const shuffleArray = function () {
-    for (let i = people.length - 1; i > 0; i--) {
-        let j = Math.floor(Math.random() * (i + 1));
-        let temp = people[i];
-        people[i] = people[j];
-        people[j] = temp;
+    for (let j = people.length - 1; j > 0; j--) {
+        let k = Math.floor(Math.random() * (j + 1));
+        let temp = people[j];
+        people[j] = people[k];
+        people[k] = temp;
     }
     console.log(`Votes: [${people}]`);
 }
+personMachina();
 shuffleArray();
+
+//todo:
+// run functions for each voter
+// remove current voter from array

@@ -1,19 +1,22 @@
 'use strict';
 
 const voters = 12;
+let people = [];
 function personMachina() {
-    let people = [];
     for (let i = 0; i < voters; i++) {
         // console.log(`Person ${i + 1}`);
         let person = `Person ${i + 1}`;
-        // console.log(person);
         people.push(person);
+        // console.log(person);
     }
+    console.log(people);
 }
+personMachina();
+// console.log(people);
 
 // people = personMachina();
 // console.log(personMachina());
-console.log(people);
+// console.log(people);
 
 /* Randomize array in-place using Durstenfeld shuffle algorithm */
 function shuffleArray(array) {

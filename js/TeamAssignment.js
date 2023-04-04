@@ -11,14 +11,19 @@ const personMachina = function() {
     console.log(`Voters: [${people}]`);
 }
 
-/* Randormize array in-place using Durstenfeld shuffle algorithm */
-const shuffleArray = function () {
+/* Randomize array in-place using Durstenfeld shuffle algorithm */
+const castVotes = function () {
     for (let i = 0; i < people.length; i++) {
-        let tempPeople = people;
-        let indexToRemove = people[i];
+        let tempPeople = [];
+
+        for (let j = 0; j < people.length; j++) {
+            tempPeople[j] = people[j];
+        }
+
+        let indexToRemove = tempPeople[i];
         tempPeople.splice(indexToRemove, 1);
-        console.log(`${tempPeople}`);
-        console.log(tempPeople.length);
+        // console.log(`${people}`);
+        // console.log(tempPeople.length);
 
         // for (let j = tempPeople.length - 1; j > 0; j--) {
         //     let k = Math.floor(Math.random() * (j + 1));
@@ -30,12 +35,12 @@ const shuffleArray = function () {
         //     // if (temp !== people[k]) {
         //     // }
         // }
-        // console.log(`Voter ${i + 1} votes: [${tempPeople}]`);
-        // console.log(people.length);
+        console.log(`Voter ${i + 1} votes: [${tempPeople}]`);
+        console.log(tempPeople.length);
     }
 }
 personMachina();
-shuffleArray();
+castVotes();
 
 //todo:
 // run functions for each voter

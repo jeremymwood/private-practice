@@ -2,28 +2,24 @@
 
 const voters = 12;
 let people = [];
-function personMachina() {
+
+const personMachina = function() {
     for (let i = 0; i < voters; i++) {
-        // console.log(`Person ${i + 1}`);
-        let person = `Person ${i + 1}`;
+        let person = `Voter ${i + 1}`;
         people.push(person);
-        // console.log(person);
     }
-    console.log(people);
+    console.log(`Voters: [${people}]`);
 }
 personMachina();
-// console.log(people);
 
-// people = personMachina();
-// console.log(personMachina());
-// console.log(people);
-
-/* Randomize array in-place using Durstenfeld shuffle algorithm */
-function shuffleArray(array) {
-    for (let i = array.length - 1; i > 0; i--) {
+/* Randormize array in-place using Durstenfeld shuffle algorithm */
+const shuffleArray = function () {
+    for (let i = people.length - 1; i > 0; i--) {
         let j = Math.floor(Math.random() * (i + 1));
-        let temp = array[i];
-        array[i] = array[j];
-        array[j] = temp;
+        let temp = people[i];
+        people[i] = people[j];
+        people[j] = temp;
     }
+    console.log(`Votes: [${people}]`);
 }
+shuffleArray();

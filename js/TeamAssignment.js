@@ -13,13 +13,26 @@ const personMachina = function() {
 
 /* Randormize array in-place using Durstenfeld shuffle algorithm */
 const shuffleArray = function () {
-    for (let j = people.length - 1; j > 0; j--) {
-        let k = Math.floor(Math.random() * (j + 1));
-        let temp = people[j];
-        people[j] = people[k];
-        people[k] = temp;
+    for (let i = 0; i < people.length; i++) {
+        let tempPeople = people;
+        let indexToRemove = people[i];
+        tempPeople.splice(indexToRemove, 1);
+        console.log(`${tempPeople}`);
+        console.log(tempPeople.length);
+
+        // for (let j = tempPeople.length - 1; j > 0; j--) {
+        //     let k = Math.floor(Math.random() * (j + 1));
+        //     if (tempPeople[j] !== tempPeople[k]) {
+        //         let temp = tempPeople[j];
+        //         tempPeople[j] = tempPeople[k];
+        //         tempPeople[k] = temp;
+        //     }
+        //     // if (temp !== people[k]) {
+        //     // }
+        // }
+        // console.log(`Voter ${i + 1} votes: [${tempPeople}]`);
+        // console.log(people.length);
     }
-    console.log(`Votes: [${people}]`);
 }
 personMachina();
 shuffleArray();

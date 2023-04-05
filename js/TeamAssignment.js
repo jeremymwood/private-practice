@@ -8,7 +8,10 @@ const personMachina = function() {
         let person = `Voter ${i + 1}`;
         people.push(person);
     }
+    console.log("");
     console.log(`Voters: [${people}]`);
+    console.log("");
+
 }
 
 /* Randomize array in-place using Durstenfeld shuffle algorithm */
@@ -31,8 +34,6 @@ const castVotes = function () {
             }
         }
         console.log(`Voter ${i + 1} votes: [${tempPeople}]`);
-        console.log(tempPeople.length);
-        // console.log(typeof(tempPeople));
     }
 }
 personMachina();

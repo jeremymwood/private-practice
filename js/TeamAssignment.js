@@ -1,6 +1,6 @@
 'use strict';
 
-const voters = 12;
+const voters = 6;
 let people = [];
 
 const personMachina = function() {
@@ -17,31 +17,23 @@ const castVotes = function () {
         let tempPeople = [];
 
         for (let j = 0; j < people.length; j++) {
-            tempPeople[j] = people[j];
+            if (j !== i) {
+                tempPeople.push(people[j]);
+            }
         }
 
-        let indexToRemove = tempPeople[i];
-        tempPeople.splice(indexToRemove, 1);
-        // console.log(`${people}`);
-        // console.log(tempPeople.length);
-
-        // for (let j = tempPeople.length - 1; j > 0; j--) {
-        //     let k = Math.floor(Math.random() * (j + 1));
-        //     if (tempPeople[j] !== tempPeople[k]) {
-        //         let temp = tempPeople[j];
-        //         tempPeople[j] = tempPeople[k];
-        //         tempPeople[k] = temp;
-        //     }
-        //     // if (temp !== people[k]) {
-        //     // }
-        // }
+        for (let j = tempPeople.length - 1; j > 0; j--) {
+            let k = Math.floor(Math.random() * (j + 1));
+            if (tempPeople[j] !== tempPeople[k]) {
+                let temp = tempPeople[j];
+                tempPeople[j] = tempPeople[k];
+                tempPeople[k] = temp;
+            }
+        }
         console.log(`Voter ${i + 1} votes: [${tempPeople}]`);
         console.log(tempPeople.length);
+        // console.log(typeof(tempPeople));
     }
 }
 personMachina();
 castVotes();
-
-//todo:
-// run functions for each voter
-// remove current voter from array

@@ -13,7 +13,7 @@ const voterMachina = function() {
     }
     // console.log("");
     // console.log(`Voters: [${voters.name}]`);
-    // console.log(voters)
+    // console.log(voters);
     // console.log("");
 
 }
@@ -38,18 +38,18 @@ const castVotes = function () {
             }
         }
 
+        voters[i].votes = tempVoters[i];
+
         // const tempVotes = [...new Set(tempVoters.flatMap(x=>[x.name]))]
         // console.log(`${voters[i].name} votes: [${tempVotes}]`);
 
-
         // console.log(`${voters[i].name} votes: [${tempVoters[i].name}]`);
         // console.log(tempVoters[i].name);
-        // console.log(tempVoters);
-        voters[i].votes = tempVoters
+        // console.log(voterVotes[i]);
+        // voters[i].votes = tempVoters
 
         // console.log(voters[i].votes)
     }
-        console.log(voters[4].votes)
 }
 voterMachina();
 castVotes();

@@ -8,14 +8,13 @@ const voterMachina = function() {
     for (let i = 0; i < voterPool; i++) {
         voters[i]  = {
             name: `Voter ${i + 1}`
-    };
-        console.log(voters[i].name);
+        };
+        // console.log(voters[i].name);
     }
-    console.log("");
-    // console.log(`Voters: [${voters}]`);
+    // console.log("");
     // console.log(`Voters: [${voters.name}]`);
-    // console.log(voters);
-    console.log("");
+    // console.log(voters)
+    // console.log("");
 
 }
 
@@ -38,12 +37,19 @@ const castVotes = function () {
                 tempVoters[k] = temp;
             }
         }
-        // tempVoters[i + 1] = tempVoters;
-        const tempVotes = [...new Set(tempVoters.flatMap(x=>[x.name]))]
-        // console.log(tempVotes);
-        console.log(`${voters[i].name} votes: [${tempVotes}]`);
 
+        // const tempVotes = [...new Set(tempVoters.flatMap(x=>[x.name]))]
+        // console.log(`${voters[i].name} votes: [${tempVotes}]`);
+
+
+        // console.log(`${voters[i].name} votes: [${tempVoters[i].name}]`);
+        // console.log(tempVoters[i].name);
+        // console.log(tempVoters);
+        voters[i].votes = tempVoters
+
+        // console.log(voters[i].votes)
     }
+        console.log(voters[4].votes)
 }
 voterMachina();
 castVotes();

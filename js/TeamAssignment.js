@@ -1,15 +1,20 @@
 'use strict';
+console.log("");
 
 const voterPool = 5;
-let voters = [];
 
+let voters = [];
 const voterMachina = function() {
     for (let i = 0; i < voterPool; i++) {
-        let voter = `Voter ${i + 1}`;
-        voters.push(voter);
+        voters[i]  = {
+            name: `Voter ${i + 1}`
+    };
+        console.log(voters[i].name);
     }
     console.log("");
-    console.log(`Voters: [${voters}]`);
+    // console.log(`Voters: [${voters}]`);
+    // console.log(`Voters: [${voters.name}]`);
+    // console.log(voters);
     console.log("");
 
 }
@@ -33,7 +38,11 @@ const castVotes = function () {
                 tempVoters[k] = temp;
             }
         }
-        console.log(`Voter ${i + 1} votes: [${tempVoters}]`);
+        // tempVoters[i + 1] = tempVoters;
+        const tempVotes = [...new Set(tempVoters.flatMap(x=>[x.name]))]
+        // console.log(tempVotes);
+        console.log(`${voters[i].name} votes: [${tempVotes}]`);
+
     }
 }
 voterMachina();

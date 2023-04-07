@@ -51,8 +51,8 @@ const groupMachina = function () {
 
             //primarySelection's primarySelection*****
 
-            if (j !== i && voters[i].name === testSelection) {
-                // primaryMatch.push(voters[i].name.toString());
+            if (j !== i && voters[i].name === testSelection && voters[j].name === primarySelection) {
+                primaryMatch.push(voters[i].name.toString());
                 primaryMatch.push(voters[j].name.toString());
                 // primaryMatch.push(primarySelection);
             }

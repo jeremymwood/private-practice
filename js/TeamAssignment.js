@@ -41,8 +41,23 @@ const castVotes = function () {
     }
     // console.log(voters);
 }
+
+const groupMachina = function () {
+    for (let i = 0; i < voters.length; i++) {
+        let primaryMatch = [];
+        let primarySelection = voters[i].votes[0];
+        for (let j = 0; j < voters.length; j++) {
+            if (j !== i && primarySelection === voters[j].votes[0]) {
+                primaryMatch.push(voters[j].name.toString());
+            }
+        }
+    console.log(primaryMatch);
+    }
+}
+
 voterMachina();
 castVotes();
+groupMachina();
 
 //todo
 //many to many top vote

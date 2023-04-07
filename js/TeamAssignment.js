@@ -48,6 +48,7 @@ const groupMachina = function () {
         let primarySelection = voters[i].votes[0];
         for (let j = 0; j < voters.length; j++) {
             if (j !== i && primarySelection === voters[j].votes[0]) {
+                primaryMatch.push(voters[i].name.toString());
                 primaryMatch.push(voters[j].name.toString());
             }
         }

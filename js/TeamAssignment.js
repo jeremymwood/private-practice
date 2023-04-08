@@ -43,6 +43,7 @@ const castVotes = function () {
 }
 
 const groupMachina = function () {
+    let primaryMatchObject = [];
     for (let i = 0; i < voters.length; i++) {
         let primaryMatch = [];
         let primarySelection = voters[i].votes[0];
@@ -55,12 +56,17 @@ const groupMachina = function () {
                 // primaryMatch.push(primarySelection);
             }
         }
-        if (primaryMatch.length !== 0) {
-            console.log(primaryMatch.sort());
+        // if (!tutorTimes.hasOwnProperty(id)) { ... }
+
+        if (primaryMatch.length !== 0 && !(primaryMatch.sort().toString() in primaryMatchObject)) {
+            //for loop to see if previous matches?
+            primaryMatchObject.push(primaryMatch.sort().toString());
         }
     }
-}
 
+    console.log("")
+    console.log(primaryMatchObject);
+}
 voterMachina();
 castVotes();
 groupMachina();

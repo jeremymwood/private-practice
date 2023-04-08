@@ -49,21 +49,18 @@ const groupMachina = function () {
         for (let j = 0; j < voters.length; j++) {
             let testSelection = voters[j].votes[0];
 
-            //primarySelection's primarySelection*****
-
             if (j !== i && voters[i].name === testSelection && voters[j].name === primarySelection) {
                 primaryMatch.push(voters[i].name.toString());
                 primaryMatch.push(voters[j].name.toString());
                 // primaryMatch.push(primarySelection);
             }
         }
-    console.log(primaryMatch);
+        if (primaryMatch.length !== 0) {
+            console.log(primaryMatch.sort());
+        }
     }
 }
 
 voterMachina();
 castVotes();
 groupMachina();
-
-//todo
-//many to many top vote

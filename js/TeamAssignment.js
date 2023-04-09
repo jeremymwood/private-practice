@@ -1,6 +1,11 @@
 'use strict';
 console.log("");
 
+//todo
+//group count
+//save remaining first round choices for second round consideration
+
+
 const voterPool = 6;
 
 let voters = [];
@@ -38,12 +43,11 @@ const castVotes = function () {
     }
 }
 
-
-const groupMachina = function () {
+let primaryMatch = [];
+const primaryMachina = function () {
     castVotes();
     console.log("");
 
-    let primaryMatch = [];
 
     for (let i = 0; i < voters.length; i++) {
         let primarySelection = voters[i].votes[0];
@@ -64,6 +68,20 @@ const groupMachina = function () {
     }
     if (primaryMatch.length === 0) {
         console.log("No matches found")
+    } else {
+        console.log(primaryMatch);
+
     }
 }
-groupMachina();
+// primaryMachina();
+const secondaryMachine = function () {
+    primaryMachina();
+    console.log("");
+
+    for (let i = 0; i < voters.length; i++) {
+        if (!primaryMatch.includes(voters[i])) {
+            console.log(voters[i].name);
+        }
+    }
+}
+secondaryMachine();

@@ -1,7 +1,7 @@
 'use strict';
 console.log("");
 
-const voterPool = 5;
+const voterPool = 6;
 
 let voters = [];
 const voterMachina = function() {
@@ -14,6 +14,8 @@ const voterMachina = function() {
 
 /* Randomize array in-place using Durstenfeld shuffle algorithm */
 const castVotes = function () {
+    voterMachina();
+
     for (let i = 0; i < voters.length; i++) {
         let voterVotes = [];
 
@@ -31,19 +33,14 @@ const castVotes = function () {
                 voterVotes[k] = temp;
             }
         }
-
         voters[i].votes = voterVotes;
-        // console.log(voters[i]);
-        // console.log(voterVotes[i]);
-        // console.log(voters[i].name);
-        // console.log(voters[i].votes);
         console.log(`${voters[i].name} votes: [${voters[i].votes}]`);
     }
-    // console.log(voters);
 }
 
 
 const groupMachina = function () {
+    castVotes();
     console.log("");
 
     let primaryMatch = [];
@@ -53,22 +50,20 @@ const groupMachina = function () {
         for (let j = 0; j < voters.length; j++) {
             let testSelection = voters[j].votes[0];
 
-            // let sortedMatch = primaryMatch.sort((a, b) => a.name.localeCompare(b.name));
-
             if (j !== i &&
                 voters[i].name === testSelection
                 && voters[j].name === primarySelection
                 && (!primaryMatch.includes(voters[i]))
             ) {
-                    primaryMatch.push(voters[i]);
-                    primaryMatch.push(voters[j]);
+                primaryMatch.push(voters[i]);
+                primaryMatch.push(voters[j]);
 
-                    console.log(`Primary match: ${voters[i].name} and ${voters[j].name}`)
+                console.log(`Primary group ${(primaryMatch.length)/2}: ${voters[i].name} and ${voters[j].name}`);
             }
         }
     }
-    // console.log(primaryMatch)
+    if (primaryMatch.length === 0) {
+        console.log("No matches found")
+    }
 }
-voterMachina();
-castVotes();
 groupMachina();

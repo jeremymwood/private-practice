@@ -42,30 +42,32 @@ const castVotes = function () {
     // console.log(voters);
 }
 
+
 const groupMachina = function () {
-    let primaryMatchObject = [];
+    console.log("");
+
+    let primaryMatch = [];
+
     for (let i = 0; i < voters.length; i++) {
-        let primaryMatch = [];
         let primarySelection = voters[i].votes[0];
         for (let j = 0; j < voters.length; j++) {
             let testSelection = voters[j].votes[0];
 
-            if (j !== i && voters[i].name === testSelection && voters[j].name === primarySelection) {
-                primaryMatch.push(voters[i].name.toString());
-                primaryMatch.push(voters[j].name.toString());
-                // primaryMatch.push(primarySelection);
+            // let sortedMatch = primaryMatch.sort((a, b) => a.name.localeCompare(b.name));
+
+            if (j !== i &&
+                voters[i].name === testSelection
+                && voters[j].name === primarySelection
+                && (!primaryMatch.includes(voters[i]))
+            ) {
+                    primaryMatch.push(voters[i]);
+                    primaryMatch.push(voters[j]);
+
+                    console.log(`Primary match: ${voters[i].name} and ${voters[j].name}`)
             }
         }
-        // if (!tutorTimes.hasOwnProperty(id)) { ... }
-
-        if (primaryMatch.length !== 0 && !(primaryMatch.sort().toString() in primaryMatchObject)) {
-            //for loop to see if previous matches?
-            primaryMatchObject.push(primaryMatch.sort().toString());
-        }
     }
-
-    console.log("")
-    console.log(primaryMatchObject);
+    // console.log(primaryMatch)
 }
 voterMachina();
 castVotes();

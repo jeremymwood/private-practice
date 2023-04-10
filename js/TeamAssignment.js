@@ -60,15 +60,12 @@ const primaryMachina = function () {
             ) {
                 primaryMatch.push(voters[i]);
                 primaryMatch.push(voters[j]);
-
                 console.log(`Primary group ${(primaryMatch.length)/2}: ${voters[i].name} and ${voters[j].name}`);
             }
         }
     }
     if (primaryMatch.length === 0) {
         console.log("No matches found")
-    } else {
-        // console.log(primaryMatch);
     }
 }
 // primaryMachina();
@@ -86,5 +83,9 @@ const secondaryMachine = function () {
     for (let i = 0; i < remainingPrimary.length; i++) {
         console.log(remainingPrimary[i].name);
     }
+
+    //todo
+    //match remainingPrimary to secondary round choices
+
 }
 secondaryMachine();

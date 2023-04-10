@@ -92,18 +92,18 @@ const secondaryMachine = function () {
             let secondarySelection = voters[j].votes[1];
 
             if (
-                // j !== i &&
-                remainingPrimarySelection === voters[j].votes[1]
-                // && voters[j].name === primarySelection
-                // && (!primaryMatch.includes(voters[i]))
-                // remainingPrimary[i].name === secondarySelection
+                remainingPrimarySelection === voters[j].name
+                && secondarySelection === remainingPrimary[i].name
+                && remainingPrimary.includes(voters[j])
             ) {
-                //need to return second group
                 secondaryMatch.push(remainingPrimary[i]);
                 secondaryMatch.push(voters[j]);
                 console.log(`Secondary group ${(secondaryMatch.length)/2}: ${remainingPrimary[i].name} and ${voters[j].name}`);
             }
         }
+    }
+    if (secondaryMatch.length !== 0) {
+        console.log(secondaryMatch);
     }
 
     //todo

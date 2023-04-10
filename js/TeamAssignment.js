@@ -107,7 +107,9 @@ const secondaryMachine = function () {
     }
 
     //todo
-    //match remainingPrimary to secondary round choices
+    //what is the best way to deal with a duplicate secondary match?
+    //randomizing is one method but is not representative of the voters' preferences.
+    //perhaps a tertiary round to determine who retains the secondary group
 
 }
 secondaryMachine();

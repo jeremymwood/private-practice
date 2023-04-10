@@ -68,7 +68,7 @@ const primaryMachina = function () {
         console.log("No matches found")
     }
 }
-// primaryMachina();
+let secondaryMatch = [];
 const secondaryMachine = function () {
     primaryMachina();
     console.log("");
@@ -82,6 +82,28 @@ const secondaryMachine = function () {
 
     for (let i = 0; i < remainingPrimary.length; i++) {
         console.log(remainingPrimary[i].name);
+    }
+
+    console.log("");
+    for (let i = 0; i < remainingPrimary.length; i++) {
+        let remainingPrimarySelection = remainingPrimary[i].votes[0];
+
+        for (let j = 0; j < voters.length; j++) {
+            let secondarySelection = voters[j].votes[1];
+
+            if (
+                // j !== i &&
+                remainingPrimarySelection === voters[j].votes[1]
+                // && voters[j].name === primarySelection
+                // && (!primaryMatch.includes(voters[i]))
+                // remainingPrimary[i].name === secondarySelection
+            ) {
+                //need to return second group
+                secondaryMatch.push(remainingPrimary[i]);
+                secondaryMatch.push(voters[j]);
+                console.log(`Secondary group ${(secondaryMatch.length)/2}: ${remainingPrimary[i].name} and ${voters[j].name}`);
+            }
+        }
     }
 
     //todo

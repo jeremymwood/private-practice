@@ -48,7 +48,6 @@ const primaryMachina = function () {
     castVotes();
     console.log("");
 
-
     for (let i = 0; i < voters.length; i++) {
         let primarySelection = voters[i].votes[0];
         for (let j = 0; j < voters.length; j++) {
@@ -69,19 +68,23 @@ const primaryMachina = function () {
     if (primaryMatch.length === 0) {
         console.log("No matches found")
     } else {
-        console.log(primaryMatch);
-
+        // console.log(primaryMatch);
     }
 }
 // primaryMachina();
 const secondaryMachine = function () {
     primaryMachina();
     console.log("");
+    let remainingPrimary = [];
 
     for (let i = 0; i < voters.length; i++) {
         if (!primaryMatch.includes(voters[i])) {
-            console.log(voters[i].name);
+            remainingPrimary.push(voters[i]);
         }
+    }
+
+    for (let i = 0; i < remainingPrimary.length; i++) {
+        console.log(remainingPrimary[i].name);
     }
 }
 secondaryMachine();

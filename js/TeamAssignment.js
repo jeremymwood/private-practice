@@ -80,6 +80,7 @@ const secondaryMachine = function () {
         }
     }
 
+    console.log("Remaining voters:");
     for (let i = 0; i < remainingPrimary.length; i++) {
         console.log(remainingPrimary[i].name);
     }
@@ -102,14 +103,16 @@ const secondaryMachine = function () {
             }
         }
     }
-    if (secondaryMatch.length !== 0) {
-        console.log(secondaryMatch);
-    }
+    // if (secondaryMatch.length !== 0) {
+    //     console.log(secondaryMatch);
+    // }
 
     //todo
     //what is the best way to deal with a duplicate secondary match?
     //randomizing is one method but is not representative of the voters' preferences.
     //perhaps a tertiary round to determine who retains the secondary group
+    //toggle number of group members
+    //gradient showing green lights, yellows and reds
 
 }
 secondaryMachine();

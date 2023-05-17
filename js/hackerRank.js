@@ -46,20 +46,18 @@
 function diagonalDifference(arr) {
     let a = 0;
     let b = 0;
-    // for (let i = 0; i < arr.length; i++) {
-    //     a += arr[i][i];
-    //
-    //     for (let j = arr.length -1; j > 0; j--) {
-    //         b += arr[i][j];
-    //         console.log(b);
-    //     }
-    // }
-    // console.log(a);
+    let backwards = arr.length -1;
 
-    //todo need to loop through
+    for (let i = 0; i < arr.length; i++) {
+        a += arr[i][i];
+        b += arr[i][backwards];
+        console.log(backwards);
+        console.log(`a = ${a}`);
+        console.log(`b = ${b}`);
 
-    a += arr[0][0] + arr[1][1] + arr[2][2];
-    b += arr[0][2] + arr[1][1] + arr[2][0];
+        backwards -= 1;
+    }
+
     return Math.abs(a - b);
 }
 

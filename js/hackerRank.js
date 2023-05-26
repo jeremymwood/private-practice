@@ -68,28 +68,41 @@
 //     [10, 8, -12]
 // ]))
 
-function plusMinus(arr) {
-    let total = arr.length;
-    let pos = 0;
-    let neg = 0;
-    let zero = 0;
-    for (let i = 0; i < total; i++) {
-        if (arr[i] > 0) {
-            pos += 1;
-        }
-        if (arr[i] < 0) {
-            neg += 1;
-        }
-        if (arr[i] === 0) {
-            zero += 1;
-        }
-    }
-    let posR = (pos / total).toFixed(6);
-    let negR = (neg / total).toFixed(6);
-    let zeroR = (zero / total).toFixed(6);
-    console.log(`${posR}`);
-    console.log(`${negR}`);
-    console.log(`${zeroR}`);
-}
+// function plusMinus(arr) {
+//     let total = arr.length;
+//     let pos = 0;
+//     let neg = 0;
+//     let zero = 0;
+//     for (let i = 0; i < total; i++) {
+//         if (arr[i] > 0) {
+//             pos += 1;
+//         }
+//         if (arr[i] < 0) {
+//             neg += 1;
+//         }
+//         if (arr[i] === 0) {
+//             zero += 1;
+//         }
+//     }
+//     let posR = (pos / total).toFixed(6);
+//     let negR = (neg / total).toFixed(6);
+//     let zeroR = (zero / total).toFixed(6);
+//     console.log(`${posR}`);
+//     console.log(`${negR}`);
+//     console.log(`${zeroR}`);
+// }
+//
+// plusMinus([1,1,0,-1,-1]);
 
-plusMinus([1,1,0,-1,-1]);
+
+function staircase(n) {
+    let arr = "";
+    for (let i = 1; i < n + 1; i++) {
+        arr += " ";
+    }
+    for (let i = n - 1; i >= 0; i--) {
+        arr = arr.substring(0, i) + "#" + arr.substring(i + 1);
+        console.log(arr)
+    }
+}
+staircase(10);

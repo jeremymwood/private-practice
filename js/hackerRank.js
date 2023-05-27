@@ -94,15 +94,29 @@
 //
 // plusMinus([1,1,0,-1,-1]);
 
+// function staircase(n) {
+//     let arr = "";
+//     for (let i = 1; i < n + 1; i++) {
+//         arr += " ";
+//     }
+//     for (let i = n - 1; i >= 0; i--) {
+//         arr = arr.substring(0, i) + "#" + arr.substring(i + 1);
+//         console.log(arr)
+//     }
+// }
+// staircase(10);
 
-function staircase(n) {
-    let arr = "";
-    for (let i = 1; i < n + 1; i++) {
-        arr += " ";
+function miniMaxSum(arr) {
+    // Write your code here
+    let sumLength = arr.length;
+    let min = 0;
+    let max = 0;
+
+    for (let i = 0; i < sumLength - 1; i++) {
+        min += arr[i];
     }
-    for (let i = n - 1; i >= 0; i--) {
-        arr = arr.substring(0, i) + "#" + arr.substring(i + 1);
-        console.log(arr)
-    }
+    console.log(min);
 }
-staircase(10);
+// print
+
+miniMaxSum([1,3,5,7,9]);

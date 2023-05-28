@@ -106,34 +106,55 @@
 // }
 // staircase(10);
 
-function miniMaxSum(arr) {
-    let sumLength = arr.length;
-    let min;
-    let max;
-    let tempSum = 0;
+// function miniMaxSum(arr) {
+//     let sumLength = arr.length;
+//     let min;
+//     let max;
+//     let tempSum = 0;
+//
+//     for (let i = 0; i < sumLength; i++) {
+//
+//         for (let j = 0; j < sumLength; j++) {
+//             if (j === i) continue;
+//             tempSum += arr[j];
+//         }
+//
+//         if (min !== undefined && max !== undefined) {
+//             if (tempSum > max) {
+//                 max = tempSum;
+//             }
+//             if (tempSum < min) {
+//                 min = tempSum;
+//             }
+//         } else {
+//             min = tempSum;
+//             max = tempSum;
+//         }
+//         tempSum = 0;
+//     }
+//         console.log(`${min} ${max}`);
+// }
+// miniMaxSum([7, 69, 2, 221, 8974]);
+// miniMaxSum([1,2,3,4,5]);
+// miniMaxSum([1,3,5,7,9]);
 
-    for (let i = 0; i < sumLength; i++) {
+function birthdayCakeCandles(candles) {
 
-        for (let j = 0; j < sumLength; j++) {
-            if (j === i) continue;
-            tempSum += arr[j];
+    let max = 0;
+    for (let i = 0; i < candles.length; i++) {
+        if (candles[i] > max) {
+            max = candles[i];
         }
-
-        if (min !== undefined && max !== undefined) {
-            if (tempSum > max) {
-                max = tempSum;
-            }
-            if (tempSum < min) {
-                min = tempSum;
-            }
-        } else {
-            min = tempSum;
-            max = tempSum;
-        }
-        tempSum = 0;
     }
-        console.log(`${min} ${max}`);
+    // console.log(max);
+
+    let count = 0;
+    for (let i = 0; i < candles.length; i++) {
+        if (candles[i] === max) {
+            count += 1;
+        }
+    }
+    console.log(count);
 }
-miniMaxSum([7, 69, 2, 221, 8974]);
-miniMaxSum([1,2,3,4,5]);
-miniMaxSum([1,3,5,7,9]);
+
+birthdayCakeCandles([4,4,1,3]);

@@ -138,23 +138,39 @@
 // miniMaxSum([1,2,3,4,5]);
 // miniMaxSum([1,3,5,7,9]);
 
-function birthdayCakeCandles(candles) {
+// function birthdayCakeCandles(candles) {
+//
+//     let max = 0;
+//     for (let i = 0; i < candles.length; i++) {
+//         if (candles[i] > max) {
+//             max = candles[i];
+//         }
+//     }
+//     // console.log(max);
+//
+//     let count = 0;
+//     for (let i = 0; i < candles.length; i++) {
+//         if (candles[i] === max) {
+//             count += 1;
+//         }
+//     }
+//     console.log(count);
+// }
+//
+// birthdayCakeCandles([4,4,1,3]);
 
-    let max = 0;
-    for (let i = 0; i < candles.length; i++) {
-        if (candles[i] > max) {
-            max = candles[i];
-        }
+function timeConversion(s) {
+    let milTime;
+    if (s.slice(-2) === 'AM') {
+        milTime = s.slice(0, -2);
+        console.log(milTime);
+    } else  {
+        // s.slice(0, -2)
+        milTime = ((parseInt(s.substring(2,0)) + 12).toString()).concat(s.slice(2, -2));
+        if (milTime.slice(0, 2) == 24)
+        console.log(milTime);
     }
-    // console.log(max);
 
-    let count = 0;
-    for (let i = 0; i < candles.length; i++) {
-        if (candles[i] === max) {
-            count += 1;
-        }
-    }
-    console.log(count);
 }
 
-birthdayCakeCandles([4,4,1,3]);
+timeConversion('11:01:02PM');

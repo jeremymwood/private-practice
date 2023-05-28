@@ -107,16 +107,33 @@
 // staircase(10);
 
 function miniMaxSum(arr) {
-    // Write your code here
     let sumLength = arr.length;
-    let min = 0;
-    let max = 0;
+    let min;
+    let max;
+    let tempSum = 0;
 
-    for (let i = 0; i < sumLength - 1; i++) {
-        min += arr[i];
+    for (let i = 0; i < sumLength; i++) {
+
+        for (let j = 0; j < sumLength; j++) {
+            if (j === i) continue;
+            tempSum += arr[j];
+        }
+
+        if (min !== undefined && max !== undefined) {
+            if (tempSum > max) {
+                max = tempSum;
+            }
+            if (tempSum < min) {
+                min = tempSum;
+            }
+        } else {
+            min = tempSum;
+            max = tempSum;
+        }
+        tempSum = 0;
     }
-    console.log(min);
+        console.log(`${min} ${max}`);
 }
-// print
-
+miniMaxSum([7, 69, 2, 221, 8974]);
+miniMaxSum([1,2,3,4,5]);
 miniMaxSum([1,3,5,7,9]);

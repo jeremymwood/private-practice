@@ -163,14 +163,14 @@ function timeConversion(s) {
     let milTime;
     if (s.slice(-2) === 'AM') {
         milTime = s.slice(0, -2);
-        console.log(milTime);
-    } else  {
-        // s.slice(0, -2)
-        milTime = ((parseInt(s.substring(2,0)) + 12).toString()).concat(s.slice(2, -2));
-        if (milTime.slice(0, 2) == 24)
-        console.log(milTime);
     }
-
+    else if (s.slice(-2) === 'PM' && parseInt(s.substring(2,0)) === 12) {
+        milTime = ("00").concat(s.slice(2, -2));
+    }
+    else  {
+        milTime = ((parseInt(s.substring(2,0)) + 12).toString()).concat(s.slice(2, -2));
+    }
+        console.log(milTime);
 }
 
-timeConversion('11:01:02PM');
+timeConversion('12:01:02AM');

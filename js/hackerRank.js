@@ -161,16 +161,23 @@
 
 function timeConversion(s) {
     let milTime;
-    if (s.slice(-2) === 'AM') {
-        milTime = s.slice(0, -2);
+    let hour = parseInt(s.substring(2,0));
+    let suffix = s.slice(-2);
+
+    if (hour > 0 && hour < 12) {
+        if (suffix === "AM") {
+            milTime = s.slice(0, -2);
+        } else {
+            milTime = (hour + 12).toString().concat(s.slice(2, -2))
+        }
+    } else {
+        if (suffix === "AM") {
+            milTime = ("00").concat(s.slice(2, -2));
+        } else {
+            milTime = s.slice(0, -2);
+        }
     }
-    else if (s.slice(-2) === 'PM' && parseInt(s.substring(2,0)) === 12) {
-        milTime = ("00").concat(s.slice(2, -2));
-    }
-    else  {
-        milTime = ((parseInt(s.substring(2,0)) + 12).toString()).concat(s.slice(2, -2));
-    }
-        console.log(milTime);
+        return milTime;
 }
 
-timeConversion('12:01:02AM');
+console.log(timeConversion('08:01:02PM'));

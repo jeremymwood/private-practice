@@ -158,26 +158,32 @@
 // }
 //
 // birthdayCakeCandles([4,4,1,3]);
+//
+// function timeConversion(s) {
+//     let milTime;
+//     let hour = parseInt(s.substring(2,0));
+//     let suffix = s.slice(-2);
+//
+//     if (hour > 0 && hour < 12) {
+//         if (suffix === "AM") {
+//             milTime = s.slice(0, -2);
+//         } else {
+//             milTime = (hour + 12).toString().concat(s.slice(2, -2))
+//         }
+//     } else {
+//         if (suffix === "AM") {
+//             milTime = ("00").concat(s.slice(2, -2));
+//         } else {
+//             milTime = s.slice(0, -2);
+//         }
+//     }
+//         return milTime;
+// }
+//
+// console.log(timeConversion('08:01:02PM'));
 
-function timeConversion(s) {
-    let milTime;
-    let hour = parseInt(s.substring(2,0));
-    let suffix = s.slice(-2);
+function kangaroo(x1, v1, x2, v2) {
+    // Write your code here
 
-    if (hour > 0 && hour < 12) {
-        if (suffix === "AM") {
-            milTime = s.slice(0, -2);
-        } else {
-            milTime = (hour + 12).toString().concat(s.slice(2, -2))
-        }
-    } else {
-        if (suffix === "AM") {
-            milTime = ("00").concat(s.slice(2, -2));
-        } else {
-            milTime = s.slice(0, -2);
-        }
-    }
-        return milTime;
 }
-
-console.log(timeConversion('08:01:02PM'));
+kangaroo(2,1,1,2);

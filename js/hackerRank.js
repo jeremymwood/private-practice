@@ -181,9 +181,27 @@
 // }
 //
 // console.log(timeConversion('08:01:02PM'));
+//
+// function kangaroo(x1, v1, x2, v2) {
+//     // Write your code here
+//
+// }
+// kangaroo(2,1,1,2);
 
-function kangaroo(x1, v1, x2, v2) {
-    // Write your code here
-
+function gradingStudents(grades) {
+    let rounded = [];
+    for (let i = 0; i < grades.length; i++) {
+        if (grades[i] > 37) {
+            if ((grades[i]%5) >= 3) {
+                //round up
+                rounded.push(grades[i] - grades[i]%5 + 5);
+            } else {
+                rounded.push(grades[i]);
+            }
+        } else {
+            rounded.push(grades[i]);
+        }
+    }
+    return rounded;
 }
-kangaroo(2,1,1,2);
+console.log(gradingStudents([ 73, 67, 38, 33 ]));

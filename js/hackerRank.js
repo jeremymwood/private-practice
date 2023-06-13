@@ -187,21 +187,41 @@
 //
 // }
 // kangaroo(2,1,1,2);
+//
+// function gradingStudents(grades) {
+//     let rounded = [];
+//     for (let i = 0; i < grades.length; i++) {
+//         if (grades[i] > 37) {
+//             if ((grades[i]%5) >= 3) {
+//                 //round up
+//                 rounded.push(grades[i] - grades[i]%5 + 5);
+//             } else {
+//                 rounded.push(grades[i]);
+//             }
+//         } else {
+//             rounded.push(grades[i]);
+//         }
+//     }
+//     return rounded;
+// }
+// console.log(gradingStudents([ 73, 67, 38, 33 ]));
 
-function gradingStudents(grades) {
-    let rounded = [];
-    for (let i = 0; i < grades.length; i++) {
-        if (grades[i] > 37) {
-            if ((grades[i]%5) >= 3) {
-                //round up
-                rounded.push(grades[i] - grades[i]%5 + 5);
-            } else {
-                rounded.push(grades[i]);
-            }
-        } else {
-            rounded.push(grades[i]);
+function countApplesAndOranges(s, t, a, b, apples, oranges) {
+    let appleCount = 0
+    let orangeCount = 0
+    for (let i = 0; i < apples.length; i++) {
+        if (apples[i] + a >= s && apples[i] + a <= t) {
+            appleCount++
         }
     }
-    return rounded;
+    console.log(appleCount)
+
+    for (let j = 0; j < oranges.length; j++) {
+        if (oranges[j] + b >= s && oranges[j] + b <= t) {
+            orangeCount++
+        }
+    }
+    console.log(orangeCount)
 }
-console.log(gradingStudents([ 73, 67, 38, 33 ]));
+
+countApplesAndOranges(7, 11,5, 15,[ -2, 2, 1 ],[ 5, -6 ])

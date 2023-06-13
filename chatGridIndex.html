@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            display: grid;
+            grid-gap: 10px;
+            width: 90%;
+            height: 80%;
+            padding: 10px;
+            aspect-ratio: 1/1;
+            border: 1px solid #ccc; /* Added border */
+        }
+
+        .square {
+            box-sizing: border-box;
+            background-color: #f0f0f0;
+            border: 1px solid #ccc;
+            width: 100%;
+            height: 0;
+            padding-bottom: 100%;
+            display: flex; /* Added display */
+            justify-content: center; /* Center horizontally */
+            align-items: center; /* Center vertically */
+        }
+    </style>
+</head>
+<body>
+<h2>Grid Creator</h2>
+
+<div>
+    <label for="rows">Rows: </label>
+    <input type="number" id="rows" min="1" value="4">
+    <label for="cols">Columns: </label>
+    <input type="number" id="cols" min="1" value="6">
+    <button onclick="createGrid()">Create Grid</button>
+</div>
+
+<div class="container"></div>
+
+<script>
+    function createGrid() {
+        var rows = parseInt(document.getElementById('rows').value);
+        var cols = parseInt(document.getElementById('cols').value);
+
+        var squareContainer = document.querySelector('.container');
+        squareContainer.innerHTML = '';
+
+        var totalSquares = rows * cols;
+        var squareSize = Math.floor(90 / Math.max(rows, cols)) - 2;
+
+        squareContainer.style.gridTemplateColumns = `repeat(${cols}, ${squareSize}%)`;
+
+        for (var i = 0; i < totalSquares; i++) {
+            var square = document.createElement('div');
+            square.className = 'square';
+
+            var randomColor = getRandomPastelColor();
+            square.style.backgroundColor = randomColor;
+
+            squareContainer.appendChild(square);
+        }
+    }
+
+    function getRandomPastelColor() {
+        var letters = '0123456789ABCDEF';
+        var color = '#';
+        for (var i = 0; i < 6; i++) {
+            color += letters[Math.floor(Math.random() * 16)];
+        }
+        return color;
+    }
+
+    // Create grid with default values
+    createGrid();
+</script>
+</body>
+</html>

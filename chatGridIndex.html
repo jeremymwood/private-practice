@@ -29,13 +29,13 @@
             align-items: center;
             justify-content: center;
             flex-shrink: 1;
-            width: 100%;
         }
         .grid-item {
             border: 4px solid orange;
             border-radius: 0.25em;
             flex-grow: 1;
             aspect-ratio: 1/1;
+            margin: .25rem;
         }
     </style>
 </head>
@@ -44,7 +44,7 @@
 
 <script>
     let rows = 6;
-    let cols = 16;
+    let cols = 10;
 
     makeGrid = function () {
         const container = document.getElementById("container");

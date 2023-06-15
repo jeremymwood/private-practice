@@ -4,18 +4,29 @@
     <style>
         body {
             background-color: beige;
-            margin: 0;
+            margin: auto;
             height: 100vh;
-            width: 100%;
+            width: 90%;
             display: flex;
             align-items: center;
             justify-content: center;
         }
-        #container {
-            background-color: pink;
+        #parentContainer {
+            background-color: darkseagreen;
             height: 420px;
             margin: auto;
             width: 100%;
+            display: flex;
+            flex-grow: 1;
+            justify-content: center;
+            flex-direction: column;
+            border: 4px #61ff4c solid;
+        }
+        #container {
+            background-color: pink;
+            height: auto;
+            margin: .5rem;
+            /*width: 100%;*/
             display: flex;
             flex-grow: 1;
             justify-content: center;
@@ -40,11 +51,17 @@
     </style>
 </head>
 <body>
-<div id="container"></div>
+<div id="parentContainer">
+    <div id="container"></div>
+</div>
 
 <script>
-    let rows = 6;
-    let cols = 10;
+    // long
+    let rows = 5;
+    let cols = 15;
+    //tall
+    // let rows = 10;
+    // let cols = 5;
 
     makeGrid = function () {
         const container = document.getElementById("container");

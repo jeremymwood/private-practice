@@ -8,6 +8,7 @@
             height: 100vh;
             width: 90%;
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
         }
@@ -48,13 +49,35 @@
             aspect-ratio: 1/1;
             margin: .25rem;
         }
+        #selectors {
+            margin: 2rem;
+            display: flex;
+            flex-direction: row;
+        }
+        #colInput, #rowInput {
+            width: 3rem;
+        }
+        #selectors button {
+            margin-right: 2rem;
+        }
     </style>
 </head>
 <body>
 <div id="parentContainer">
     <div id="container"></div>
 </div>
-
+<div class="d-flex justify-content-around w-100 py-3" id="selectors">
+    <div class="">
+        <label for="rowInput">Rows:</label>
+        <input type="text" id="rowInput" class="mb-3"/>
+        <button class="btn btn-outline-secondary" type="submit">Submit</button>
+    </div>
+    <div class="">
+        <label for="colInput">Columns:</label>
+        <input type="text" id="colInput" class="mb-3"/>
+        <button class="btn btn-outline-secondary" type="submit">Submit</button>
+    </div>
+</div>
 <script>
     // long
     let rows = 5;

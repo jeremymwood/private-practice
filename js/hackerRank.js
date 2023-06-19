@@ -206,22 +206,48 @@
 // }
 // console.log(gradingStudents([ 73, 67, 38, 33 ]));
 
-function countApplesAndOranges(s, t, a, b, apples, oranges) {
-    let appleCount = 0
-    let orangeCount = 0
-    for (let i = 0; i < apples.length; i++) {
-        if (apples[i] + a >= s && apples[i] + a <= t) {
-            appleCount++
-        }
-    }
-    console.log(appleCount)
+// function countApplesAndOranges(s, t, a, b, apples, oranges) {
+//     let appleCount = 0
+//     let orangeCount = 0
+//     for (let i = 0; i < apples.length; i++) {
+//         if (apples[i] + a >= s && apples[i] + a <= t) {
+//             appleCount++
+//         }
+//     }
+//     console.log(appleCount)
+//
+//     for (let j = 0; j < oranges.length; j++) {
+//         if (oranges[j] + b >= s && oranges[j] + b <= t) {
+//             orangeCount++
+//         }
+//     }
+//     console.log(orangeCount)
+// }
+//
+// countApplesAndOranges(7, 11,5, 15,[ -2, 2, 1 ],[ 5, -6 ])
 
-    for (let j = 0; j < oranges.length; j++) {
-        if (oranges[j] + b >= s && oranges[j] + b <= t) {
-            orangeCount++
-        }
+function kangaroo(x1, v1, x2, v2) {
+    let answer = 0;
+    if (x1 !== x2) {
+        do {
+            answer++;
+            x1 += v1;
+            x2 += v2;
+            if (x1 === x2) {
+                console.log('yes')
+                console.log(answer);
+                console.log(`x1: ${x1}`);
+                console.log(`x2: ${x2}`);
+                return 'yes'
+            }
+        } while (answer <= 10000);
+        console.log('no')
+        console.log(answer);
+        console.log(`x1: ${x1}`);
+        console.log(`x2: ${x2}`);
+        return 'no'
     }
-    console.log(orangeCount)
+
+
 }
-
-countApplesAndOranges(7, 11,5, 15,[ -2, 2, 1 ],[ 5, -6 ])
+kangaroo(2, 1, 1, 2);

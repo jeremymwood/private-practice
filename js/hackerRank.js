@@ -225,29 +225,44 @@
 // }
 //
 // countApplesAndOranges(7, 11,5, 15,[ -2, 2, 1 ],[ 5, -6 ])
+//
+// function kangaroo(x1, v1, x2, v2) {
+//     let answer = 0;
+//     if (x1 !== x2) {
+//         do {
+//             answer++;
+//             x1 += v1;
+//             x2 += v2;
+//             if (x1 === x2) {
+//                 console.log('yes')
+//                 console.log(answer);
+//                 console.log(`x1: ${x1}`);
+//                 console.log(`x2: ${x2}`);
+//                 return 'yes'
+//             }
+//         } while (answer <= 10000);
+//         console.log('no')
+//         console.log(answer);
+//         console.log(`x1: ${x1}`);
+//         console.log(`x2: ${x2}`);
+//         return 'no'
+//     }
+//
+//
+// }
+// kangaroo(2, 1, 1, 2);
 
-function kangaroo(x1, v1, x2, v2) {
-    let answer = 0;
-    if (x1 !== x2) {
-        do {
-            answer++;
-            x1 += v1;
-            x2 += v2;
-            if (x1 === x2) {
-                console.log('yes')
-                console.log(answer);
-                console.log(`x1: ${x1}`);
-                console.log(`x2: ${x2}`);
-                return 'yes'
+function getTotalX(a, b) {
+    let arr = [];
+    for (let i = 0; i < a.length; i++) {
+        let int;
+        for (let j = 2; j <= a[i]; j++) {
+            int = a[i] % j;
+            if (Number.isInteger(int) && int > 1) {
+                arr.push(int);
             }
-        } while (answer <= 10000);
-        console.log('no')
-        console.log(answer);
-        console.log(`x1: ${x1}`);
-        console.log(`x2: ${x2}`);
-        return 'no'
+        }
     }
-
-
+    console.log(arr);
 }
-kangaroo(2, 1, 1, 2);
+getTotalX( [ 2, 6], [ 24, 36]);

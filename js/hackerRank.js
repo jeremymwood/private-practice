@@ -255,11 +255,11 @@
 function getTotalX(a, b) {
     let arr = [];
     for (let i = 0; i < a.length; i++) {
-        let int;
+        let tempInt;
         for (let j = 2; j <= a[i]; j++) {
-            int = a[i] % j;
-            if (Number.isInteger(int) && int > 1) {
-                arr.push(int);
+            tempInt = a[i] % j;
+            if (Number.isInteger(tempInt) && tempInt > 1) {
+                arr.push(tempInt);
             }
         }
     }

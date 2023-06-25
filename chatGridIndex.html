@@ -13,7 +13,8 @@
             justify-content: center;
         }
         #parentContainer {
-            background-color: darkseagreen;
+            /*background-color: darkseagreen;*/
+            /*border: 4px #61ff4c solid;*/
             height: 420px;
             margin: auto;
             width: 100%;
@@ -21,64 +22,90 @@
             flex-grow: 1;
             justify-content: center;
             flex-direction: column;
-            border: 4px #61ff4c solid;
         }
         #container {
-            background-color: pink;
-            /*height: 100%;*/
+            /*background-color: pink;*/
+            /*border: 4px red solid;*/
             margin: .5rem;
             display: flex;
             flex-grow: 1;
             justify-content: center;
             flex-direction: column;
-            border: 4px red solid;
         }
         .row-container {
-            /*margin: 0 auto;*/
-            border: 4px cyan solid;
-            background-color: cornflowerblue;
-            /*width: auto;*/
+            /*background-color: cornflowerblue;*/
+            /*border: 4px cyan solid;*/
             display: flex;
             align-items: center;
             justify-content: center;
-            /*flex-grow: 1;*/
-            /*flex-direction: row;*/
         }
         .grid-item {
+            background-color: #ffe8bc;
             border: 4px solid orange;
             border-radius: 0.25em;
-            /*height: 100%;*/
             flex-grow: 1;
             aspect-ratio: 1/1;
             margin: .25rem;
         }
+        .grid-item:active {
+            background-color: #ffcf7a;
+            border: 4px solid #905d00;
+        }
+        .grid-item:hover {
+            scale: 1.05;
+        }
         #selectors {
             margin: 2rem;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-gap: 1rem;
+            align-items: center;
+            justify-content: center;
+        }
+        #selectors > * {
             display: flex;
             flex-direction: row;
+            align-items: center;
+            justify-content: center;
         }
         #colInput, #rowInput {
-            width: 3rem;
+            width: 1.5rem;
         }
-        #selectors button {
-            margin-right: 2rem;
+        #rowInput, #colInput {
+            margin: 0 0.5rem;
+        }
+        .icon-button {
+            background: none;
+            border: none;
+            padding: 0;
+            cursor: pointer;
+            font-size: 3rem;
+            color: #000;
+        }
+        .fa-solid:active {
+            scale: 1.1;
         }
     </style>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
 <div id="parentContainer">
     <div id="container"></div>
 </div>
 <div id="selectors">
-    <label for="rowInput">Rows:</label>
-    <button id="decrementRows">-</button>
-    <input type="text" id="rowInput" value="5">
-    <button id="incrementRows">+</button>
-    <label for="colInput">Columns:</label>
-    <button id="decrementCols">-</button>
-    <input type="text" id="colInput" value="10">
-    <button id="incrementCols">+</button>
+    <div>
+        <label for="rowInput">Rows:</label>
+        <input type="text" id="rowInput" value="5">
+        <button id="decrementRows" class="icon-button"><i class="fa-solid fa-caret-down"></i></button>
+        <button id="incrementRows" class="icon-button"><i class="fa-solid fa-caret-up"></i></button>
+    </div>
+    <div>
+        <label for="colInput">Columns:</label>
+        <input type="text" id="colInput" value="10">
+        <button id="decrementCols" class="icon-button"><i class="fa-solid fa-caret-down"></i></button>
+        <button id="incrementCols" class="icon-button"><i class="fa-solid fa-caret-up"></i></button>
+    </div>
 </div>
 <script>
 

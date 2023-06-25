@@ -43,7 +43,6 @@
             justify-content: center;
             /*flex-grow: 1;*/
             /*flex-direction: row;*/
-
         }
         .grid-item {
             border: 4px solid orange;
@@ -115,7 +114,7 @@
             console.log("Rows: " + countRows);
             console.log("Cells: " + countCells);
 
-            if (countRows > countCells) {
+            if (countRows >= countCells) {
                 $(container).css("height", "100%");
                 $(rowContainer).css({
                     "flex-grow":"1",
@@ -143,6 +142,7 @@
         // Increment Rows
         $("#incrementRows").click(function() {
             rows++;
+            $("#rowInput").val(rows);
             makeGrid();
             countGrid();
         });
@@ -151,6 +151,7 @@
         $("#decrementRows").click(function() {
             if (rows > 1) {
                 rows--;
+                $("#rowInput").val(rows);
                 makeGrid();
                 countGrid();
             }
@@ -159,6 +160,7 @@
         // Increment Columns
         $("#incrementCols").click(function() {
             cols++;
+            $("#colInput").val(cols);
             makeGrid();
             countGrid();
         });
@@ -167,6 +169,27 @@
         $("#decrementCols").click(function() {
             if (cols > 1) {
                 cols--;
+                $("#colInput").val(cols);
+                makeGrid();
+                countGrid();
+            }
+        });
+
+        // Update Rows
+        $("#rowInput").change(function() {
+            let value = parseInt($(this).val());
+            if (value > 0) {
+                rows = value;
+                makeGrid();
+                countGrid();
+            }
+        });
+
+        // Update Columns
+        $("#colInput").change(function() {
+            let value = parseInt($(this).val());
+            if (value > 0) {
+                cols = value;
                 makeGrid();
                 countGrid();
             }

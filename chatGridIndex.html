@@ -25,7 +25,7 @@
         }
         #container {
             background-color: pink;
-            height: 100%;
+            /*height: 100%;*/
             margin: .5rem;
             display: flex;
             flex-grow: 1;
@@ -34,21 +34,21 @@
             border: 4px red solid;
         }
         .row-container {
-            margin: 0 auto;
+            /*margin: 0 auto;*/
             border: 4px cyan solid;
             background-color: cornflowerblue;
-            width: auto;
+            /*width: auto;*/
             display: flex;
             align-items: center;
             justify-content: center;
-            flex-grow: 1;
-            flex-direction: row;
+            /*flex-grow: 1;*/
+            /*flex-direction: row;*/
 
         }
         .grid-item {
             border: 4px solid orange;
             border-radius: 0.25em;
-            height: 100%;
+            /*height: 100%;*/
             flex-grow: 1;
             aspect-ratio: 1/1;
             margin: .25rem;
@@ -84,47 +84,64 @@
     </div>
 </div>
 <script>
-    // long
-    let rows = 20;
-    let cols = 10;
-    //tall
-    // let rows = 10;
-    // let cols = 5;
-
-    makeGrid = function () {
-        const container = document.getElementById("container");
-
-        for (let i = 0; i < rows; i++) {
-            let row = document.createElement("div");
-            container.appendChild(row).className = "row-container";
-
-            for (let j = 0; j < cols; j++) {
-                let cell = document.createElement("button");
-                row.appendChild(cell).className = "grid-item";
-            }
-        }
-    }
-
-    makeGrid();
 
     $(document).ready(function() {
-        let countRows = $(".row-container").length;
+        // long
+        let rows = 5;
+        let cols = 10;
+        //tall
+        // let rows = 10;
+        // let cols = 5;
+
+        let makeGrid = function () {
+            const container = document.getElementById("container");
+
+            for (let i = 0; i < rows; i++) {
+                let row = document.createElement("div");
+                container.appendChild(row).className = "row-container";
+
+                for (let j = 0; j < cols; j++) {
+                    let cell = document.createElement("button");
+                    row.appendChild(cell).className = "grid-item";
+                }
+            }
+        }
+
+        makeGrid();
+
+        let container = $(".container");
+        let rowContainer = $(".row-container");
+        let gridItem = $(".grid-item");
+
+        let countRows = $(rowContainer).length;
         let countCells = $(".row-container:first .grid-item").length;
-        console.log("Number of row-containers: " + countRows);
-        console.log("Number of cells: " + countCells);
+
+        console.log("Rows: " + countRows);
+        console.log("Cells: " + countCells);
 
         if (countRows > countCells) {
-            $(".container").css("height", "100%");
-            $(".row-container").css({"flex-grow":"1", "flex-direction":"row", "width":"auto",  "margin":"0 auto", "flex-shrink":""});
-            $(".grid-item").css("height", "100%");
-
+            $(container).css("height", "100%");
+            $(rowContainer).css({
+                "flex-grow":"1",
+                "flex-direction":"row",
+                "width":"auto",
+                "margin":"0 auto",
+                "flex-shrink":""});
+            $(gridItem).css("height", "100%");
+            console.log("rows > cells")
         } else {
-            $(".container").css("height", "auto");
-            $(".row-container").css({"flex-grow":"", "flex-direction":"", "width":"",  "margin":"", "flex-shrink":"1"});
-            $(".grid-item").css("height", "");
+            $(container).removeAttr('style').css("height", "auto");
+            $(rowContainer).removeAttr('style').css({
+                "flex-grow":"",
+                "flex-direction":"",
+                "width":"",
+                "margin":"",
+                "flex-shrink":"1"});
+            $(gridItem).removeAttr('style').css("height","");
+            console.log("rows < cells")
         }
-    });
 
+    });
 </script>
 </body>
 </html>

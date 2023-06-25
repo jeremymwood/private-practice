@@ -71,30 +71,25 @@
 <div id="parentContainer">
     <div id="container"></div>
 </div>
-<div class="d-flex justify-content-around w-100 py-3" id="selectors">
-    <div class="">
-        <label for="rowInput">Rows:</label>
-        <input type="text" id="rowInput" class="mb-3"/>
-        <button class="btn btn-outline-secondary" type="submit">Submit</button>
-    </div>
-    <div class="">
-        <label for="colInput">Columns:</label>
-        <input type="text" id="colInput" class="mb-3"/>
-        <button class="btn btn-outline-secondary" type="submit">Submit</button>
-    </div>
+<div id="selectors">
+    <label for="rowInput">Rows:</label>
+    <button id="decrementRows">-</button>
+    <input type="text" id="rowInput" value="5">
+    <button id="incrementRows">+</button>
+    <label for="colInput">Columns:</label>
+    <button id="decrementCols">-</button>
+    <input type="text" id="colInput" value="10">
+    <button id="incrementCols">+</button>
 </div>
 <script>
 
     $(document).ready(function() {
-        // long
         let rows = 5;
         let cols = 10;
-        //tall
-        // let rows = 10;
-        // let cols = 5;
 
         let makeGrid = function () {
             const container = document.getElementById("container");
+            container.innerHTML = '';
 
             for (let i = 0; i < rows; i++) {
                 let row = document.createElement("div");
@@ -109,37 +104,73 @@
 
         makeGrid();
 
-        let container = $(".container");
-        let rowContainer = $(".row-container");
-        let gridItem = $(".grid-item");
+        let countGrid = function () {
+            let container = $(".container");
+            let rowContainer = $(".row-container");
+            let gridItem = $(".grid-item");
 
-        let countRows = $(rowContainer).length;
-        let countCells = $(".row-container:first .grid-item").length;
+            let countRows = $(rowContainer).length;
+            let countCells = $(".row-container:first .grid-item").length;
 
-        console.log("Rows: " + countRows);
-        console.log("Cells: " + countCells);
+            console.log("Rows: " + countRows);
+            console.log("Cells: " + countCells);
 
-        if (countRows > countCells) {
-            $(container).css("height", "100%");
-            $(rowContainer).css({
-                "flex-grow":"1",
-                "flex-direction":"row",
-                "width":"auto",
-                "margin":"0 auto",
-                "flex-shrink":""});
-            $(gridItem).css("height", "100%");
-            console.log("rows > cells")
-        } else {
-            $(container).removeAttr('style').css("height", "auto");
-            $(rowContainer).removeAttr('style').css({
-                "flex-grow":"",
-                "flex-direction":"",
-                "width":"",
-                "margin":"",
-                "flex-shrink":"1"});
-            $(gridItem).removeAttr('style').css("height","");
-            console.log("rows < cells")
+            if (countRows > countCells) {
+                $(container).css("height", "100%");
+                $(rowContainer).css({
+                    "flex-grow":"1",
+                    "flex-direction":"row",
+                    "width":"auto",
+                    "margin":"0 auto",
+                    "flex-shrink":""});
+                $(gridItem).css("height", "100%");
+                console.log("rows > cells")
+            } else {
+                $(container).removeAttr('style').css("height", "auto");
+                $(rowContainer).removeAttr('style').css({
+                    "flex-grow":"",
+                    "flex-direction":"",
+                    "width":"",
+                    "margin":"",
+                    "flex-shrink":"1"});
+                $(gridItem).removeAttr('style').css("height","");
+                console.log("rows < cells")
+            }
         }
+        countGrid();
+
+
+        // Increment Rows
+        $("#incrementRows").click(function() {
+            rows++;
+            makeGrid();
+            countGrid();
+        });
+
+        // Decrement Rows
+        $("#decrementRows").click(function() {
+            if (rows > 1) {
+                rows--;
+                makeGrid();
+                countGrid();
+            }
+        });
+
+        // Increment Columns
+        $("#incrementCols").click(function() {
+            cols++;
+            makeGrid();
+            countGrid();
+        });
+
+        // Decrement Columns
+        $("#decrementCols").click(function() {
+            if (cols > 1) {
+                cols--;
+                makeGrid();
+                countGrid();
+            }
+        });
 
     });
 </script>

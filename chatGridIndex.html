@@ -47,6 +47,10 @@
             aspect-ratio: 1/1;
             margin: .25rem;
         }
+        .grid-item.active {
+            background-color: #d0ffbc;
+            border: 4px solid #73ff00;
+        }
         .grid-item:active {
             background-color: #ffcf7a;
             border: 4px solid #905d00;
@@ -108,10 +112,11 @@
     </div>
 </div>
 <script>
-
     $(document).ready(function() {
         let rows = 5;
         let cols = 10;
+
+        let activeCells = new Set(); // Track active cells
 
         let makeGrid = function () {
             const container = document.getElementById("container");
@@ -124,52 +129,53 @@
                 for (let j = 0; j < cols; j++) {
                     let cell = document.createElement("button");
                     row.appendChild(cell).className = "grid-item";
+                    if (activeCells.has(`${i}-${j}`)) {
+                        $(cell).addClass("active");
+                    }
                 }
             }
-        }
 
-        makeGrid();
+            // Update click event handler for grid items
+            $(".grid-item").click(function() {
+                $(this).toggleClass("active");
 
-        let countGrid = function () {
-            let container = $(".container");
-            let rowContainer = $(".row-container");
-            let gridItem = $(".grid-item");
+                // Track active cells
+                let row = $(this).closest(".row-container").index();
+                let col = $(this).index();
+                let cellKey = `${row}-${col}`;
 
-            let countRows = $(rowContainer).length;
-            let countCells = $(".row-container:first .grid-item").length;
+                if ($(this).hasClass("active")) {
+                    activeCells.add(cellKey);
+                } else {
+                    activeCells.delete(cellKey);
+                }
+            });
+        };
 
-            console.log("Rows: " + countRows);
-            console.log("Cells: " + countCells);
+        // ...
 
-            if (countRows >= countCells) {
-                $(container).css("height", "100%");
-                $(rowContainer).css({
-                    "flex-grow":"1",
-                    "flex-direction":"row",
-                    "width":"auto",
-                    "margin":"0 auto",
-                    "flex-shrink":""});
-                $(gridItem).css("height", "100%");
-                console.log("rows > cells")
-            } else {
-                $(container).removeAttr('style').css("height", "auto");
-                $(rowContainer).removeAttr('style').css({
-                    "flex-grow":"",
-                    "flex-direction":"",
-                    "width":"",
-                    "margin":"",
-                    "flex-shrink":"1"});
-                $(gridItem).removeAttr('style').css("height","");
-                console.log("rows < cells")
-            }
-        }
-        countGrid();
+        // Function to reset active cells outside the grid bounds
+        let resetActiveCells = function () {
+            let newActiveCells = new Set();
 
+            activeCells.forEach(function (cellKey) {
+                let [row, col] = cellKey.split("-");
+                row = parseInt(row);
+                col = parseInt(col);
+
+                if (row < rows && col < cols) {
+                    newActiveCells.add(cellKey);
+                }
+            });
+
+            activeCells = newActiveCells;
+        };
 
         // Increment Rows
         $("#incrementRows").click(function() {
             rows++;
             $("#rowInput").val(rows);
+            resetActiveCells();
             makeGrid();
             countGrid();
         });
@@ -179,6 +185,7 @@
             if (rows > 1) {
                 rows--;
                 $("#rowInput").val(rows);
+                resetActiveCells();
                 makeGrid();
                 countGrid();
             }
@@ -188,6 +195,7 @@
         $("#incrementCols").click(function() {
             cols++;
             $("#colInput").val(cols);
+            resetActiveCells();
             makeGrid();
             countGrid();
         });
@@ -197,32 +205,17 @@
             if (cols > 1) {
                 cols--;
                 $("#colInput").val(cols);
+                resetActiveCells();
                 makeGrid();
                 countGrid();
             }
         });
 
-        // Update Rows
-        $("#rowInput").change(function() {
-            let value = parseInt($(this).val());
-            if (value > 0) {
-                rows = value;
-                makeGrid();
-                countGrid();
-            }
-        });
+        // ...
 
-        // Update Columns
-        $("#colInput").change(function() {
-            let value = parseInt($(this).val());
-            if (value > 0) {
-                cols = value;
-                makeGrid();
-                countGrid();
-            }
-        });
-
+        makeGrid();
     });
+
 </script>
 </body>
 </html>

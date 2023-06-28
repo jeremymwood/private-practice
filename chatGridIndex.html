@@ -13,8 +13,6 @@
             justify-content: center;
         }
         #parentContainer {
-            /*background-color: darkseagreen;*/
-            /*border: 4px #61ff4c solid;*/
             height: 420px;
             margin: auto;
             width: 100%;
@@ -24,8 +22,6 @@
             flex-direction: column;
         }
         #container {
-            /*background-color: pink;*/
-            /*border: 4px red solid;*/
             margin: .5rem;
             display: flex;
             flex-grow: 1;
@@ -33,8 +29,6 @@
             flex-direction: column;
         }
         .row-container {
-            /*background-color: cornflowerblue;*/
-            /*border: 4px cyan solid;*/
             display: flex;
             align-items: center;
             justify-content: center;
@@ -46,17 +40,22 @@
             flex-grow: 1;
             aspect-ratio: 1/1;
             margin: .25rem;
+            cursor: pointer;
         }
         .grid-item.active {
             background-color: #d0ffbc;
             border: 4px solid #73ff00;
         }
         .grid-item:active {
-            background-color: #ffcf7a;
-            border: 4px solid #905d00;
+            background-color: #ffeb7a;
+            border: 4px solid #ffd932;
         }
         .grid-item:hover {
             scale: 1.05;
+        }
+        .blank {
+            opacity: 0;
+            cursor: default;
         }
         #selectors {
             margin: 2rem;
@@ -74,8 +73,6 @@
         }
         #colInput, #rowInput {
             width: 1.5rem;
-        }
-        #rowInput, #colInput {
             margin: 0 0.5rem;
         }
         .icon-button {
@@ -84,11 +81,41 @@
             padding: 0;
             cursor: pointer;
             font-size: 3rem;
-            color: #000;
+            color: orange;
         }
         .fa-solid:active {
             scale: 1.1;
         }
+        .col-button-label, .row-button-label {
+            background-color: beige;
+            border: 4px solid beige;
+            border-radius: 0.25em;
+            flex-grow: 1;
+            margin: .25rem;
+            cursor: pointer;
+            position: relative;
+        }
+        .col-button-label {
+        }
+        .row-button-label {
+            width: 1rem;
+        }
+        .col-label, .row-label {
+            position: absolute;
+            /*width: 0;*/
+            /*height: 0;*/
+        }
+        .col-label {
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        .row-label {
+            top: -50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
     </style>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -119,29 +146,58 @@
         let activeCells = new Set(); // Track active cells
 
         let makeGrid = function () {
-            const container = document.getElementById("container");
-            container.innerHTML = '';
+            const container = $("#container");
+            container.empty();
 
             for (let i = 0; i < rows; i++) {
-                let row = document.createElement("div");
-                container.appendChild(row).className = "row-container";
+                let row = $("<div>").addClass("row-container");
+                let rowLabelButton = $("<button>").addClass("row-button-label");
+                let rowLabel = $("<div>").addClass("row-label");
+                rowLabelButton.append(rowLabel);
+                rowLabel.text(i + 1);
+                row.append(rowLabelButton);
 
                 for (let j = 0; j < cols; j++) {
-                    let cell = document.createElement("button");
-                    row.appendChild(cell).className = "grid-item";
+                    let cell = $("<button>").addClass("grid-item");
+                    row.append(cell);
                     if (activeCells.has(`${i}-${j}`)) {
-                        $(cell).addClass("active");
+                        cell.addClass("active");
                     }
                 }
+
+                container.append(row);
+            }
+
+            // Create separate divs for row labels and column labels
+            // let rowLabelsContainer = $("<div>").addClass("row-container");
+            let colLabelsContainer = $("<div>").addClass("row-container");
+            container.append(colLabelsContainer);
+
+            // Add column labels
+            for (let j = 0; j < cols + 1; j++) {
+                // let colLabel = $("<button>").addClass("grid-item label");
+
+                let colLabelButton = $("<button>").addClass("col-button-label");
+                let colLabel = $("<div>").addClass("col-label");
+                colLabelButton.append(colLabel);
+                // colLabel.text(i + 1);
+
+                if (j > 0) {
+                    colLabel.text(j); // Convert ASCII code to letters (B, C, D, ...)
+                } else {
+                    colLabelButton.addClass("blank");
+                }
+
+                colLabelsContainer.append(colLabelButton);
             }
 
             // Update click event handler for grid items
-            $(".grid-item").click(function() {
+            $(".grid-item").click(function () {
                 $(this).toggleClass("active");
 
                 // Track active cells
-                let row = $(this).closest(".row-container").index();
-                let col = $(this).index();
+                let row = $(this).closest(".row-container").index() - 1; // Subtract 1 for the label row
+                let col = $(this).index() - 1; // Subtract 1 for the label column
                 let cellKey = `${row}-${col}`;
 
                 if ($(this).hasClass("active")) {
@@ -210,8 +266,6 @@
                 countGrid();
             }
         });
-
-        // ...
 
         makeGrid();
     });

@@ -140,7 +140,7 @@
 </div>
 <script>
     $(document).ready(function() {
-        let rows = 5;
+        let rowLabels = ["A", "B", "C", "D", "E"]; // Array of row labels
         let cols = 10;
 
         let activeCells = new Set(); // Track active cells
@@ -149,12 +149,12 @@
             const container = $("#container");
             container.empty();
 
-            for (let i = 0; i < rows; i++) {
+            for (let i = 0; i < rowLabels.length; i++) {
                 let row = $("<div>").addClass("row-container");
                 let rowLabelButton = $("<button>").addClass("row-button-label");
                 let rowLabel = $("<div>").addClass("row-label");
                 rowLabelButton.append(rowLabel);
-                rowLabel.text(i + 1);
+                rowLabel.text(rowLabels[i]);
                 row.append(rowLabelButton);
 
                 for (let j = 0; j < cols; j++) {
@@ -212,14 +212,14 @@
 
         // Function to reset active cells outside the grid bounds
         let resetActiveCells = function () {
-            let newActiveCells = new Set();
+            let newActiveCells = newSet();
 
             activeCells.forEach(function (cellKey) {
                 let [row, col] = cellKey.split("-");
                 row = parseInt(row);
                 col = parseInt(col);
 
-                if (row < rows && col < cols) {
+                if (row < rowLabels.length && col < cols) {
                     newActiveCells.add(cellKey);
                 }
             });
@@ -229,8 +229,8 @@
 
         // Increment Rows
         $("#incrementRows").click(function() {
-            rows++;
-            $("#rowInput").val(rows);
+            rowLabels.push("Row " + String.fromCharCode(65 + rowLabels.length)); // Add new row label
+            $("#rowInput").val(rowLabels.length);
             resetActiveCells();
             makeGrid();
             countGrid();
@@ -238,9 +238,9 @@
 
         // Decrement Rows
         $("#decrementRows").click(function() {
-            if (rows > 1) {
-                rows--;
-                $("#rowInput").val(rows);
+            if (rowLabels.length > 1) {
+                rowLabels.pop(); // Remove the last row label
+                $("#rowInput").val(rowLabels.length);
                 resetActiveCells();
                 makeGrid();
                 countGrid();

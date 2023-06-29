@@ -116,6 +116,44 @@
             transform: translate(-50%, -50%);
         }
 
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+        .modal-content {
+            background-color: white;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+        }
+        .close {
+            color: #aaaaaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .close:hover,
+        .close:focus {
+            color: #000;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .modal-input {
+            margin-bottom: 10px;
+        }
+        .modal-buttons {
+            text-align: right;
+        }
     </style>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -138,9 +176,24 @@
         <button id="incrementCols" class="icon-button"><i class="fa-solid fa-caret-up"></i></button>
     </div>
 </div>
+
+<!-- Modal -->
+<div id="myModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Edit Row Labels</h2>
+        <div id="modalInputs"></div>
+        <div class="modal-buttons">
+            <button id="addLabel">Add Label</button>
+            <button id="removeLabel">Remove Label</button>
+            <button id="updateLabels">Update</button>
+        </div>
+    </div>
+</div>
+
 <script>
     $(document).ready(function() {
-        let rowLabels = ["A", "B", "C", "D", "E"]; // Array of row labels
+        let rowLabels = ["cr", "rd", "ht", "ft", "sn", "bd"]; // Array of row labels
         let cols = 10;
 
         let activeCells = new Set(); // Track active cells
@@ -206,13 +259,30 @@
                     activeCells.delete(cellKey);
                 }
             });
+
+            // Update long press event handler for row labels
+            $(".row-button-label").on("mousedown", function (e) {
+                let timer;
+                let rowButtonLabel = $(this);
+
+                // Start the timer on mouse down
+                timer = setTimeout(function () {
+                    // Show the modal
+                    showModal(rowButtonLabel);
+                }, 500);
+
+                // Clear the timer on mouse up
+                $(document).on("mouseup", function () {
+                    clearTimeout(timer);
+                });
+            });
         };
 
         // ...
 
         // Function to reset active cells outside the grid bounds
         let resetActiveCells = function () {
-            let newActiveCells = newSet();
+            let newActiveCells = new Set();
 
             activeCells.forEach(function (cellKey) {
                 let [row, col] = cellKey.split("-");
@@ -229,11 +299,11 @@
 
         // Increment Rows
         $("#incrementRows").click(function() {
-            rowLabels.push("Row " + String.fromCharCode(65 + rowLabels.length)); // Add new row label
+            // rowLabels.push("Row " + String.fromCharCode(65 + rowLabels.length)); // Add new row label
+            rowLabels.push(String.fromCharCode(rowLabels.charCodeAt(rowLabels.length - 1) + 1)); // Add new row label
             $("#rowInput").val(rowLabels.length);
             resetActiveCells();
             makeGrid();
-            countGrid();
         });
 
         // Decrement Rows
@@ -243,7 +313,6 @@
                 $("#rowInput").val(rowLabels.length);
                 resetActiveCells();
                 makeGrid();
-                countGrid();
             }
         });
 
@@ -253,7 +322,6 @@
             $("#colInput").val(cols);
             resetActiveCells();
             makeGrid();
-            countGrid();
         });
 
         // Decrement Columns
@@ -263,13 +331,106 @@
                 $("#colInput").val(cols);
                 resetActiveCells();
                 makeGrid();
-                countGrid();
             }
         });
 
         makeGrid();
-    });
 
+        // Modal functionality
+        let showModal = function (rowButtonLabel) {
+            let rowIndex = rowButtonLabel.parent().index(); // Get the index of the row
+            let modal = document.getElementById("myModal");
+            let modalContent = document.querySelector(".modal-content");
+            let modalInputs = document.getElementById("modalInputs");
+            let addLabelBtn = document.getElementById("addLabel");
+            let removeLabelBtn = document.getElementById("removeLabel");
+            let updateLabelsBtn = document.getElementById("updateLabels");
+
+            // Clear existing inputs
+            modalInputs.innerHTML = "";
+
+            // Create inputs for row labels
+            for (let i = 0; i < rowLabels.length; i++) {
+                let inputContainer = document.createElement("div");
+                inputContainer.classList.add("modal-input");
+
+                let labelIndex = i + 1; // Adjust index for display (1-based index)
+                let inputLabel = document.createElement("label");
+                inputLabel.innerText = `Row ${labelIndex}:`;
+
+                let input = document.createElement("input");
+                input.type = "text";
+                input.value = rowLabels[i];
+
+                inputContainer.appendChild(inputLabel);
+                inputContainer.appendChild(input);
+
+                modalInputs.appendChild(inputContainer);
+            }
+
+            // Set click event handlers for modal buttons
+            addLabelBtn.onclick = function () {
+                let inputContainer = document.createElement("div");
+                inputContainer.classList.add("modal-input");
+
+                let labelIndex = rowLabels.length + 1; // Adjust index for display (1-based index)
+                let inputLabel = document.createElement("label");
+                inputLabel.innerText = `Row ${labelIndex}:`;
+
+                let input = document.createElement("input");
+                input.type = "text";
+
+                inputContainer.appendChild(inputLabel);
+                inputContainer.appendChild(input);
+
+                modalInputs.appendChild(inputContainer);
+            };
+
+            removeLabelBtn.onclick = function () {
+                let inputContainers = modalInputs.children;
+                if (inputContainers.length > 0) {
+                    modalInputs.removeChild(inputContainers[inputContainers.length - 1]);
+                }
+            };
+
+            updateLabelsBtn.onclick = function () {
+                let inputs = modalInputs.querySelectorAll("input");
+
+                // Update row labels array
+                rowLabels = Array.from(inputs).map(function (input) {
+                    return input.value;
+                });
+
+                makeGrid();
+
+                closeModal();
+            };
+
+            // Show the modal
+            modal.style.display = "block";
+
+            // Close the modal when the user clicks outside of it
+            window.onclick = function (event) {
+                if (event.target == modal) {
+                    closeModal();
+                }
+            };
+
+            // Close the modal when the user clicks the close button
+            let closeModalButton = document.querySelector(".close");
+            closeModalButton.onclick = function () {
+                closeModal();
+            };
+
+            // Function to close the modal and reset event handlers
+            let closeModal = function () {
+                modal.style.display = "none";
+                modalInputs.innerHTML = "";
+                window.onclick = null;
+                closeModalButton.onclick = null;
+            };
+        };
+    });
 </script>
 </body>
 </html>

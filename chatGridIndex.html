@@ -148,12 +148,25 @@
             text-decoration: none;
             cursor: pointer;
         }
-        .modal-input {
-            margin-bottom: 10px;
-        }
         .modal-buttons {
             text-align: right;
         }
+        .modal-input {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        .modal-input .remove-button {
+            background: none;
+            border: none;
+            padding: 0;
+            cursor: pointer;
+            font-size: 1.5rem;
+            color: red;
+            margin-left: 0.5rem;
+        }
+
     </style>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -161,6 +174,19 @@
 <body>
 <div id="parentContainer">
     <div id="container"></div>
+    <!-- Add this code inside the <div id="parentContainer"> -->
+    <div id="modal" class="modal">
+        <div id="modal-content" class="modal-content">
+            <div id="modal-inputs">
+                <!-- Row inputs will be dynamically added here -->
+            </div>
+            <div id="modal-actions">
+                <button id="addRowButton">Add Row</button>
+                <button id="saveButton">Save</button>
+            </div>
+        </div>
+    </div>
+
 </div>
 <div id="selectors">
     <div>
@@ -350,6 +376,7 @@
             modalInputs.innerHTML = "";
 
             // Create inputs for row labels
+            // Create inputs for row labels
             for (let i = 0; i < rowLabels.length; i++) {
                 let inputContainer = document.createElement("div");
                 inputContainer.classList.add("modal-input");
@@ -362,14 +389,23 @@
                 input.type = "text";
                 input.value = rowLabels[i];
 
+                let removeButton = document.createElement("button");
+                removeButton.classList.add("remove-button");
+                removeButton.innerHTML = "&times;";
+                removeButton.addEventListener("click", function() {
+                    modalInputs.removeChild(inputContainer);
+                });
+
                 inputContainer.appendChild(inputLabel);
                 inputContainer.appendChild(input);
+                inputContainer.appendChild(removeButton);
 
                 modalInputs.appendChild(inputContainer);
             }
 
-            // Set click event handlers for modal buttons
-            addLabelBtn.onclick = function () {
+// ...
+
+            addLabelBtn.onclick = function() {
                 let inputContainer = document.createElement("div");
                 inputContainer.classList.add("modal-input");
 
@@ -380,18 +416,20 @@
                 let input = document.createElement("input");
                 input.type = "text";
 
+                let removeButton = document.createElement("button");
+                removeButton.classList.add("remove-button");
+                removeButton.innerHTML = "&times;";
+                removeButton.addEventListener("click", function() {
+                    modalInputs.removeChild(inputContainer);
+                });
+
                 inputContainer.appendChild(inputLabel);
                 inputContainer.appendChild(input);
+                inputContainer.appendChild(removeButton);
 
                 modalInputs.appendChild(inputContainer);
             };
 
-            removeLabelBtn.onclick = function () {
-                let inputContainers = modalInputs.children;
-                if (inputContainers.length > 0) {
-                    modalInputs.removeChild(inputContainers[inputContainers.length - 1]);
-                }
-            };
 
             updateLabelsBtn.onclick = function () {
                 let inputs = modalInputs.querySelectorAll("input");

@@ -42,14 +42,14 @@
             margin: .25rem;
             cursor: pointer;
         }
-        .grid-item.active {
+        .grid-item.active-green {
             background-color: #d0ffbc;
             border: 4px solid #73ff00;
         }
-        .grid-item:active {
-            background-color: #ffeb7a;
-            border: 4px solid #ffd932;
-        }
+        /*.grid-item:active-green {*/
+        /*    background-color: #ffeb7a;*/
+        /*    border: 4px solid #ffd932;*/
+        /*}*/
         .grid-item:hover {
             scale: 1.05;
         }
@@ -127,7 +127,17 @@
             height: 100%;
             overflow: auto;
             background-color: rgba(0, 0, 0, 0.4);
+            display: none; /* Hide the modal by default */
+
         }
+        .modal-option {
+            width: 50px;
+            height: 50px;
+            margin: 5px;
+            border: none;
+            cursor: pointer;
+        }
+
         .modal-content {
             background-color: white;
             margin: 15% auto;
@@ -166,6 +176,15 @@
             color: red;
             margin-left: 0.5rem;
         }
+        .grid-item.active-red {
+            background-color: #ff9090;
+            border: 4px solid #ff0000;
+        }
+
+        .grid-item.active-purple {
+            background-color: #d0a0ff;
+            border: 4px solid #7a00ff;
+        }
 
     </style>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -183,6 +202,7 @@
             <div id="modal-actions">
                 <button id="addRowButton">Add Row</button>
                 <button id="saveButton">Save</button>
+                <button id="closeModalButton" class="close">Close</button>
             </div>
         </div>
     </div>
@@ -215,6 +235,7 @@
             <button id="updateLabels">Update</button>
         </div>
     </div>
+
 </div>
 
 <script>
@@ -240,11 +261,17 @@
                     let cell = $("<button>").addClass("grid-item");
                     row.append(cell);
                     if (activeCells.has(`${i}-${j}`)) {
-                        cell.addClass("active");
+                        cell.addClass("active-green");
                     }
                 }
 
                 container.append(row);
+
+                $(".grid-item").click(function () {
+                    let selectedGridItem = $(this);
+                    openModal(selectedGridItem);
+                });
+
             }
 
             // Create separate divs for row labels and column labels
@@ -272,14 +299,14 @@
 
             // Update click event handler for grid items
             $(".grid-item").click(function () {
-                $(this).toggleClass("active");
+                $(this).toggleClass("active-green");
 
                 // Track active cells
                 let row = $(this).closest(".row-container").index() - 1; // Subtract 1 for the label row
                 let col = $(this).index() - 1; // Subtract 1 for the label column
                 let cellKey = `${row}-${col}`;
 
-                if ($(this).hasClass("active")) {
+                if ($(this).hasClass("active-green")) {
                     activeCells.add(cellKey);
                 } else {
                     activeCells.delete(cellKey);
@@ -366,6 +393,7 @@
         let showModal = function (rowButtonLabel) {
             let rowIndex = rowButtonLabel.parent().index(); // Get the index of the row
             let modal = document.getElementById("myModal");
+            // let modal = $("#myModal");
             let modalContent = document.querySelector(".modal-content");
             let modalInputs = document.getElementById("modalInputs");
             let addLabelBtn = document.getElementById("addLabel");
@@ -432,7 +460,10 @@
 
 
             updateLabelsBtn.onclick = function () {
+
                 let inputs = modalInputs.querySelectorAll("input");
+                let closeModalButton = document.getElementById("closeModalButton");
+                closeModalButton.addEventListener("click", closeModal);
 
                 // Update row labels array
                 rowLabels = Array.from(inputs).map(function (input) {
@@ -468,6 +499,45 @@
                 closeModalButton.onclick = null;
             };
         };
+        function openModal(selectedGridItem) {
+            let modal = document.getElementById("modal");
+            let modalContent = document.getElementById("modal-content");
+            let modalInputs = document.getElementById("modal-inputs");
+
+            // Clear existing inputs
+            modalInputs.innerHTML = "";
+
+            // Create color options for the modal
+            let colors = ["green", "red", "purple"];
+            for (let i = 0; i < colors.length; i++) {
+                let colorOption = colors[i];
+
+                let optionButton = document.createElement("button");
+                optionButton.classList.add("modal-option");
+                optionButton.style.backgroundColor = colorOption;
+
+                optionButton.addEventListener("click", function () {
+                    selectedGridItem.removeClass("active active-red active-purple");
+                    selectedGridItem.addClass("active-" + colorOption);
+                    let row = selectedGridItem.closest(".row-container");
+                    let rowGridItems = row.find(".grid-item");
+                    rowGridItems.removeClass("active active-red active-purple");
+                    rowGridItems.addClass("active-" + colorOption);
+                    closeModal();
+                });
+
+                modalInputs.appendChild(optionButton);
+            }
+
+            // Show the modal
+            modal.style.display = "block";
+        }
+        function closeModal() {
+            let modal = document.getElementById("modal");
+            modal.style.display = "none";
+        }
+
+
     });
 </script>
 </body>

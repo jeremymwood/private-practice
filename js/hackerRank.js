@@ -252,17 +252,32 @@
 // }
 // kangaroo(2, 1, 1, 2);
 
-function getTotalX(a, b) {
-    let arr = [];
-    for (let i = 0; i < a.length; i++) {
-        let tempInt;
-        for (let j = 2; j <= a[i]; j++) {
-            tempInt = a[i] % j;
-            if (Number.isInteger(tempInt) && tempInt > 1) {
-                arr.push(tempInt);
-            }
+//
+// function getTotalX(a, b) {
+//     let arr = [];
+//     for (let i = 0; i < a.length; i++) {
+//         let tempInt;
+//         for (let j = 2; j <= a[i]; j++) {
+//             tempInt = a[i] % j;
+//             if (Number.isInteger(tempInt) && tempInt > 1) {
+//                 arr.push(tempInt);
+//             }
+//         }
+//     }
+//     console.log(arr);
+// }
+// getTotalX( [ 2, 6], [ 24, 36]);
+function serviceLane(n, cases) {
+    for (let i = 0; i < cases.length; i++) {
+        let currentCase = cases[i];
+        let width = [];
+        for (let j = currentCase[0]; j < currentCase[1] + 1; j++) {
+            width.push(n[j]);
         }
+        console.log(Math.min(...width));
     }
-    console.log(arr);
 }
-getTotalX( [ 2, 6], [ 24, 36]);
+
+let n = [2, 3, 1, 2, 3, 2, 3, 3]
+let cases = [[0, 3], [4, 6], [6, 7], [3, 5], [0, 7]]
+serviceLane(n, cases);

@@ -268,13 +268,16 @@
 // }
 // getTotalX( [ 2, 6], [ 24, 36]);
 function serviceLane(n, cases) {
+    let result = '';
     for (let i = 0; i < cases.length; i++) {
         let currentCase = cases[i];
         let width = [];
         for (let j = currentCase[0]; j < currentCase[1] + 1; j++) {
             width.push(n[j]);
         }
-        console.log(Math.min(...width));
+        let currentWidth = Math.min(...width);
+        console.log(currentWidth);
+        // console.log(typeof currentWidth);
     }
 }
 

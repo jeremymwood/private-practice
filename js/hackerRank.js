@@ -267,20 +267,40 @@
 //     console.log(arr);
 // }
 // getTotalX( [ 2, 6], [ 24, 36]);
-function serviceLane(n, cases) {
-    let result = '';
-    for (let i = 0; i < cases.length; i++) {
-        let currentCase = cases[i];
-        let width = [];
-        for (let j = currentCase[0]; j < currentCase[1] + 1; j++) {
-            width.push(n[j]);
+//
+// function serviceLane(n, cases) {
+//     let result = '';
+//     for (let i = 0; i < cases.length; i++) {
+//         let currentCase = cases[i];
+//         let width = [];
+//         for (let j = currentCase[0]; j < currentCase[1] + 1; j++) {
+//             width.push(n[j]);
+//         }
+//         let currentWidth = Math.min(...width);
+//         console.log(currentWidth);
+//         // console.log(typeof currentWidth);
+//     }
+// }
+//
+// let n = [2, 3, 1, 2, 3, 2, 3, 3]
+// let cases = [[0, 3], [4, 6], [6, 7], [3, 5], [0, 7]]
+// serviceLane(n, cases);
+
+function birthday(s, d, m) {
+    let solutions = [];
+    for (let i = 0; i < s.length; i++) {
+        let tempArr = [];
+        let temp = 0;
+        for (let j = 0; j < m; j++) {
+            temp += s[i + j];
+            tempArr.push(s[i + j]);
+            if (temp === d) {
+                solutions.push(tempArr);
+            }
         }
-        let currentWidth = Math.min(...width);
-        console.log(currentWidth);
-        // console.log(typeof currentWidth);
     }
+    console.log(solutions);
 }
 
-let n = [2, 3, 1, 2, 3, 2, 3, 3]
-let cases = [[0, 3], [4, 6], [6, 7], [3, 5], [0, 7]]
-serviceLane(n, cases);
+// birthday([ 2, 2, 1, 3, 2 ], 4, 2);
+birthday([ 1, 2, 1, 3, 2 ], 3, 2);

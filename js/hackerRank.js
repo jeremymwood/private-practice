@@ -305,28 +305,39 @@
 // // birthday([ 2, 2, 1, 3, 2 ], 4, 2);
 // console.log(birthday([ 1, 2, 1, 3, 2 ], 3, 2));
 
-function breakingRecords(scores) {
-    let min = 0;
-    let max = 0;
-    let minCount = 0;
-    let maxCount = 0;
+// function breakingRecords(scores) {
+//     let min = 0;
+//     let max = 0;
+//     let minCount = 0;
+//     let maxCount = 0;
+//
+//     for (let i = 0; i < scores.length; i++) {
+//         if (i === 0) {
+//             min = max = scores[0];
+//         } else {
+//             if (scores[i] < min) {
+//                 minCount++;
+//                 min = scores[i];
+//             }
+//             if (scores[i] > max) {
+//                 maxCount++;
+//                 max = scores[i];
+//             }
+//         }
+//     }
+//     console.log(maxCount, minCount);
+// };
+//
+// breakingRecords( [10, 5, 20, 20, 4, 5, 2, 25, 1] );
+// //expected 2 max 4 min
 
-    for (let i = 0; i < scores.length; i++) {
-        if (i === 0) {
-            min = max = scores[0];
-        } else {
-            if (scores[i] < min) {
-                minCount++;
-                min = scores[i];
-            }
-            if (scores[i] > max) {
-                maxCount++;
-                max = scores[i];
-            }
-        }
+function reverseArray(a) {
+    let arr = [];
+    for (let i = a.length -1; i >= 0; i--) {
+        arr.push(a[i]);
     }
-    console.log([maxCount, minCount]);
-};
+    console.log(arr);
+}
+reverseArray([ 1, 2, 3 ]);
 
-breakingRecords( [10, 5, 20, 20, 4, 5, 2, 25, 1] );
-//expected 2 max 4 min
+

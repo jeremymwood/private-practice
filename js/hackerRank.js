@@ -325,7 +325,7 @@ function breakingRecords(scores) {
             }
         }
     }
-    console.log(maxCount, minCount);
+    console.log([maxCount, minCount]);
 };
 
 breakingRecords( [10, 5, 20, 20, 4, 5, 2, 25, 1] );

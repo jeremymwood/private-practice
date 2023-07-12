@@ -331,13 +331,29 @@
 // breakingRecords( [10, 5, 20, 20, 4, 5, 2, 25, 1] );
 // //expected 2 max 4 min
 
-function reverseArray(a) {
-    let arr = [];
-    for (let i = a.length -1; i >= 0; i--) {
-        arr.push(a[i]);
+// function reverseArray(a) {
+//     let arr = [];
+//     for (let i = a.length -1; i >= 0; i--) {
+//         arr.push(a[i]);
+//     }
+//     console.log(arr);
+// }
+// reverseArray([ 1, 2, 3 ]);
+
+function migratoryBirds(arr) {
+    // Write your code here
+    for (let i = 0; i < arr.length - 1; i++) {
+        let type = `type ${i + 1}`;
+        let tempArr = 0;
+        for (let j = 0; j < arr.length; j++) {
+            if (arr[j] === arr[i + 1]) {
+                tempArr++;
+            }
+        }
+            console.log(`${type}: ${tempArr}`)
+
     }
-    console.log(arr);
+
 }
-reverseArray([ 1, 2, 3 ]);
 
-
+migratoryBirds([ 1, 1, 2, 2, 3 ]);

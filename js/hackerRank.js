@@ -305,32 +305,32 @@
 // // birthday([ 2, 2, 1, 3, 2 ], 4, 2);
 // console.log(birthday([ 1, 2, 1, 3, 2 ], 3, 2));
 
-function breakingRecords(scores) {
-    let min = 0;
-    let max = 0;
-    let minCount = 0;
-    let maxCount = 0;
-
-    for (let i = 0; i < scores.length; i++) {
-        if (i === 0) {
-            min = max = scores[0];
-        } else {
-            if (scores[i] < min) {
-                minCount++;
-                min = scores[i];
-            }
-            if (scores[i] > max) {
-                maxCount++;
-                max = scores[i];
-            }
-        }
-    }
-    // console.log(maxCount, minCount);
-    return `${maxCount} ${minCount}`;
-};
-
-// breakingRecords( [10, 5, 20, 20, 4, 5, 2, 25, 1] );
-console.log(breakingRecords( [10, 5, 20, 20, 4, 5, 2, 25, 1] ));
+// function breakingRecords(scores) {
+//     let min = 0;
+//     let max = 0;
+//     let minCount = 0;
+//     let maxCount = 0;
+//
+//     for (let i = 0; i < scores.length; i++) {
+//         if (i === 0) {
+//             min = max = scores[0];
+//         } else {
+//             if (scores[i] < min) {
+//                 minCount++;
+//                 min = scores[i];
+//             }
+//             if (scores[i] > max) {
+//                 maxCount++;
+//                 max = scores[i];
+//             }
+//         }
+//     }
+//     // console.log(maxCount, minCount);
+//     return `${maxCount} ${minCount}`;
+// };
+//
+// // breakingRecords( [10, 5, 20, 20, 4, 5, 2, 25, 1] );
+// console.log(breakingRecords( [10, 5, 20, 20, 4, 5, 2, 25, 1] ));
 
 // //expected 2 max 4 min
 
@@ -360,3 +360,8 @@ console.log(breakingRecords( [10, 5, 20, 20, 4, 5, 2, 25, 1] ));
 // }
 //
 // migratoryBirds([ 1, 1, 2, 2, 3 ]);
+
+function dayOfProgrammer(year) {
+    // Write your code here
+
+}

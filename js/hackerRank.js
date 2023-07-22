@@ -362,12 +362,28 @@
 // migratoryBirds([ 1, 1, 2, 2, 3 ]);
 
 function dayOfProgrammer(year) {
-    let leap = year % 4;
-    if (leap > 0) {
-        return `13.09.${year}`;
-    } else {
-        return `12.09.${year}`;
+
+    if (year >= 1700 && year <= 1917) {
+        let leap = year % 4;
+        if (leap > 0) {
+            return `13.09.${year}`;
+        } else {
+            return `12.09.${year}`;
+        }
     }
+
+    if (year === 1918) {
+            return `26.09.1918`;
+    }
+
+    if (year > 1918) {
+        if (year % 400 === 0 || (year % 4 === 0 && year % 100 > 0)) {
+            return `12.09.${year}`;
+        } else {
+            return `13.09.${year}`;
+        }
+    }
+
 }
 
 console.log(dayOfProgrammer(2100));

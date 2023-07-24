@@ -361,29 +361,47 @@
 //
 // migratoryBirds([ 1, 1, 2, 2, 3 ]);
 
-function dayOfProgrammer(year) {
+// function dayOfProgrammer(year) {
+//
+//     if (year >= 1700 && year <= 1917) {
+//         let leap = year % 4;
+//         if (leap > 0) {
+//             return `13.09.${year}`;
+//         } else {
+//             return `12.09.${year}`;
+//         }
+//     }
+//
+//     if (year === 1918) {
+//             return `26.09.1918`;
+//     }
+//
+//     if (year > 1918) {
+//         if (year % 400 === 0 || (year % 4 === 0 && year % 100 > 0)) {
+//             return `12.09.${year}`;
+//         } else {
+//             return `13.09.${year}`;
+//         }
+//     }
+//
+// }
+//
+// console.log(dayOfProgrammer(2100));
 
-    if (year >= 1700 && year <= 1917) {
-        let leap = year % 4;
-        if (leap > 0) {
-            return `13.09.${year}`;
-        } else {
-            return `12.09.${year}`;
-        }
+function bonAppetit(bill, k, b) {
+    let total = 0;
+    for (let i = 0; i < bill.length; i++) {
+        total += bill[i];
     }
-
-    if (year === 1918) {
-            return `26.09.1918`;
-    }
-
-    if (year > 1918) {
-        if (year % 400 === 0 || (year % 4 === 0 && year % 100 > 0)) {
-            return `12.09.${year}`;
-        } else {
-            return `13.09.${year}`;
-        }
+    let half = total / 2;
+    if ( half - b === 0) {
+        console.log('Bon Appetit');
+    } else {
+        console.log(Math.abs(b - half));
     }
 
 }
 
-console.log(dayOfProgrammer(2100));
+bonAppetit([3, 10, 2, 9], 1, 12);
+// bonAppetit([72, 53, 60, 66, 90, 62, 12, 31, 36, 94
+// ], 6, 288);

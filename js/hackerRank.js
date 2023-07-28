@@ -393,15 +393,19 @@ function bonAppetit(bill, k, b) {
     for (let i = 0; i < bill.length; i++) {
         total += bill[i];
     }
-    let half = total / 2;
+    // console.log(`total: ${total}`)
+    let half = (total - bill[k]) / 2;
+    // console.log(`half: ${half}`)
     if ( half - b === 0) {
+        // console.log(half - b);
         console.log('Bon Appetit');
     } else {
-        console.log(Math.abs(b - half));
+        console.log(Math.abs(b - half ));
     }
 
 }
 
-bonAppetit([3, 10, 2, 9], 1, 12);
+// bonAppetit([3, 10, 2, 9], 1, 12);
+bonAppetit([3, 10, 2, 9], 1, 7);
 // bonAppetit([72, 53, 60, 66, 90, 62, 12, 31, 36, 94
 // ], 6, 288);

@@ -388,24 +388,52 @@
 //
 // console.log(dayOfProgrammer(2100));
 
-function bonAppetit(bill, k, b) {
-    let total = 0;
-    for (let i = 0; i < bill.length; i++) {
-        total += bill[i];
-    }
-    // console.log(`total: ${total}`)
-    let half = (total - bill[k]) / 2;
-    // console.log(`half: ${half}`)
-    if ( half - b === 0) {
-        // console.log(half - b);
-        console.log('Bon Appetit');
-    } else {
-        console.log(Math.abs(b - half ));
-    }
-
-}
+// function bonAppetit(bill, k, b) {
+//     let total = 0;
+//     for (let i = 0; i < bill.length; i++) {
+//         total += bill[i];
+//     }
+//     // console.log(`total: ${total}`)
+//     let half = (total - bill[k]) / 2;
+//     // console.log(`half: ${half}`)
+//     if ( half - b === 0) {
+//         // console.log(half - b);
+//         console.log('Bon Appetit');
+//     } else {
+//         console.log(Math.abs(b - half ));
+//     }
+//
+// }
 
 // bonAppetit([3, 10, 2, 9], 1, 12);
-bonAppetit([3, 10, 2, 9], 1, 7);
+// bonAppetit([3, 10, 2, 9], 1, 7);
 // bonAppetit([72, 53, 60, 66, 90, 62, 12, 31, 36, 94
 // ], 6, 288);
+
+// let objArr = [
+//     {
+//         id: 1,
+//         name: 'henry'
+//     },
+//     {
+//         id: 2,
+//         name: 'harry'
+//     },
+//     {
+//         id: 3,
+//         name: 'henrietta'
+//     }
+// ];
+//
+// console.log(objArr[0].name);
+
+function heptad() {
+    // let fraction = (1/7);
+
+    for (let i = 1; i < 8; i++) {
+        let fraction = (i/7);
+        fraction = fraction.toFixed(6);
+        console.log(fraction);
+    }
+};
+heptad();

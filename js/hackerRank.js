@@ -436,4 +436,34 @@ function heptad() {
         console.log(fraction);
     }
 };
-heptad();
+// heptad();
+
+// function sigFigs(numerator, denominator, decimalPlaces) {
+//     const quotient = numerator / denominator;
+//     const scaleFactor = Math.pow(10, decimalPlaces);
+//     const scaledValue = Math.round(quotient * scaleFactor);
+//     const decimalValue = scaledValue / scaleFactor;
+//     return decimalValue.toFixed(decimalPlaces);
+// }
+//
+// console.log();
+
+function sigFigs(numerator, denominator, decimalPlaces) {
+    let quotient = Math.floor(numerator / denominator);
+    let remainder = numerator % denominator;
+    let decimal = quotient + '.';
+
+
+    for (let i = 0; i < decimalPlaces; i++) {
+        remainder *= 10;
+        quotient = Math.floor(remainder / denominator);
+        decimal += quotient;
+        remainder %= denominator;
+    }
+    console.log(decimal);
+}
+
+sigFigs(1,7,10)
+
+
+

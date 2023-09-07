@@ -426,44 +426,70 @@
 // ];
 //
 // console.log(objArr[0].name);
-
-function heptad() {
-    // let fraction = (1/7);
-
-    for (let i = 1; i < 8; i++) {
-        let fraction = (i/7);
-        fraction = fraction.toFixed(6);
-        console.log(fraction);
-    }
-};
+//
+// function heptad() {
+//     // let fraction = (1/7);
+//
+//     for (let i = 1; i < 8; i++) {
+//         let fraction = (i/7);
+//         fraction = fraction.toFixed(6);
+//         console.log(fraction);
+//     }
+// };
 // heptad();
-
+//
 // function sigFigs(numerator, denominator, decimalPlaces) {
-//     const quotient = numerator / denominator;
-//     const scaleFactor = Math.pow(10, decimalPlaces);
-//     const scaledValue = Math.round(quotient * scaleFactor);
-//     const decimalValue = scaledValue / scaleFactor;
-//     return decimalValue.toFixed(decimalPlaces);
+//     let quotient = Math.floor(numerator / denominator);
+//     let remainder = numerator % denominator;
+//     let decimal = quotient + '.';
+//
+//
+//     for (let i = 0; i < decimalPlaces; i++) {
+//         remainder *= 10;
+//         quotient = Math.floor(remainder / denominator);
+//         decimal += quotient;
+//         remainder %= denominator;
+//     }
+//     console.log(decimal);
+// }
+
+// sigFigs(1,7,100);
+// for (let i = 0; i < ; i++) {
+//
+// }
+
+
+
+// function Load() {
+//     return new Promise(resolve => {
+//         setTimeout(() => {
+//             console.log("load");
+//             resolve();
+//         }, 5000); // Simulating a 5-second delay
+//     });
+// }
+
+// $(document).ready(async function() {
+//     await Load();
+//     console.log("after");
+// });
+// let arr = [1, 2, 3, 4];
+// for (let i = 0; i < arr.length; i++) {
+//     console.log(arr[i]);
 // }
 //
-// console.log();
-
-function sigFigs(numerator, denominator, decimalPlaces) {
-    let quotient = Math.floor(numerator / denominator);
-    let remainder = numerator % denominator;
-    let decimal = quotient + '.';
-
-
-    for (let i = 0; i < decimalPlaces; i++) {
-        remainder *= 10;
-        quotient = Math.floor(remainder / denominator);
-        decimal += quotient;
-        remainder %= denominator;
-    }
-    console.log(decimal);
-}
-
-sigFigs(1,7,10)
-
-
+// const date = new Date();
+//
+// // Define options for formatting
+// const options = {
+//     year: 'numeric',
+//     month: '2-digit', // 'numeric' for one-digit months, '2-digit' for zero-padded
+//     day: '2-digit',   // 'numeric' for one-digit days, '2-digit' for zero-padded
+// };
+//
+// // Format the date as a string
+// const formattedDate = date.toLocaleDateString();
+//
+// console.log(formattedDate); // Output in MM/DD/YYYY format, e.g., "09/07/2023"
+// console.log(typeof formattedDate); // Output in MM/DD/YYYY format, e.g., "09/07/2023"
 
